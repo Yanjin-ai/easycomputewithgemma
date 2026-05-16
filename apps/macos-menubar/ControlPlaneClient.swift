@@ -1,7 +1,7 @@
 import Foundation
 
 final class ControlPlaneClient {
-    static let fallbackBaseURL = URL(string: "http://192.168.1.141:3000")!
+    static let fallbackBaseURL = URL(string: "http://localhost:3000")!
 
     private let baseURL: URL
     private let session: URLSession
