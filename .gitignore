@@ -1,0 +1,85 @@
+# ── API keys & secrets ────────────────────────────────────────────────────────
+.desktop_api_key
+*.api_key
+.env
+.env.*
+!.env.example
+
+# ── Model files (large binaries) ──────────────────────────────────────────────
+*.litertlm
+*.gguf
+*.bin
+*.safetensors
+models/
+
+# ── Node.js ───────────────────────────────────────────────────────────────────
+node_modules/
+dist/
+*.tsbuildinfo
+.npm
+
+# ── Python ────────────────────────────────────────────────────────────────────
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.eggs/
+dist/
+build/
+*.dist-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.profraw
+coverage/
+.coverage
+htmlcov/
+
+# ── Xcode / iOS ───────────────────────────────────────────────────────────────
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
+Pods/
+.build/
+xcuserdata/
+
+# ── macOS ────────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# ── SQLite databases (runtime state, not committed) ───────────────────────────
+*.sqlite
+*.sqlite3
+*.db
+!packages/schemas/**/*.sqlite
+
+# ── Logs & temp ───────────────────────────────────────────────────────────────
+*.log
+logs/
+tmp/
+temp/
+eval_results_*.json
+
+# ── Editor ───────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Android (mobile-host) ────────────────────────────────────────────────────
+apps/mobile-host/.gradle/
+apps/mobile-host/build/
+apps/mobile-host/app/build/
+apps/mobile-host/local.properties
+*.apk
+*.aab

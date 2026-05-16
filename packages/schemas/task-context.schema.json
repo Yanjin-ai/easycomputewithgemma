@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/task-context.schema.json",
+  "title": "TaskContext",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "intent": {
+      "type": "string"
+    },
+    "goal": {
+      "type": "object"
+    },
+    "memory_summary": {
+      "type": "string"
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "permission_level": {
+          "$ref": "common.schema.json#/$defs/permission_level"
+        },
+        "allowed_tools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "deadline": {
+          "$ref": "common.schema.json#/$defs/timestamp"
+        }
+      },
+      "required": [
+        "permission_level"
+      ]
+    }
+  },
+  "required": [
+    "intent",
+    "goal",
+    "constraints"
+  ]
+}

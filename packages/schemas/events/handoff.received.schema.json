@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/events/handoff.received.schema.json",
+  "title": "HandoffReceivedEventPayload",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "handoff_id": {
+      "$ref": "../common.schema.json#/$defs/uuid"
+    },
+    "received_at": {
+      "$ref": "../common.schema.json#/$defs/timestamp"
+    }
+  },
+  "required": [
+    "handoff_id",
+    "received_at"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/events/run.checkpoint_saved.schema.json",
+  "title": "RunCheckpointSavedEventPayload",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "checkpoint_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "storage_ref": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "checkpoint_index",
+    "storage_ref"
+  ]
+}

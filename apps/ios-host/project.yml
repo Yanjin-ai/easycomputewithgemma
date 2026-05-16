@@ -1,0 +1,69 @@
+name: GemmaHost
+
+options:
+  bundleIdPrefix: com.gemma4all
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "15"
+  generateEmptyDirectories: false
+  groupSortPosition: none
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    ENABLE_PREVIEWS: "YES"
+    ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: "YES"
+    TARGETED_DEVICE_FAMILY: "1,2"
+
+targets:
+  GemmaHost:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+
+    sources:
+      - path: GemmaHost
+        excludes:
+          - "**/.DS_Store"
+
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.gemma4all.GemmaHost
+        INFOPLIST_FILE: GemmaHost/Info.plist
+        PRODUCT_NAME: GemmaHost
+        CODE_SIGN_STYLE: Automatic
+        # Entitlements: increased-memory-limit for future on-device model loading
+        CODE_SIGN_ENTITLEMENTS: GemmaHost/GemmaHost.entitlements
+      configs:
+        Debug:
+          DEBUG_INFORMATION_FORMAT: dwarf
+        Release:
+          DEBUG_INFORMATION_FORMAT: "dwarf-with-dsym"
+          SWIFT_OPTIMIZATION_LEVEL: "-O"
+
+    info:
+      path: GemmaHost/Info.plist
+      properties:
+        CFBundleVersion: "1"
+        CFBundleShortVersionString: "0.1.0"
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        # Allow HTTP to local-network control plane (no TLS in dev)
+        NSAppTransportSecurity:
+          NSAllowsLocalNetworking: true
+          NSExceptionDomains:
+            192.168.1.141:
+              NSExceptionAllowsInsecureHTTPLoads: true
+              NSIncludesSubdomains: false
+        NSLocalNetworkUsageDescription: "GemmaHost connects to your Mac's Gemma control plane on the local network."
+        NSMicrophoneUsageDescription: "GemmaHost uses the microphone to let you dictate tasks by voice."
+        NSUserNotificationsUsageDescription: "GemmaHost notifies you when a task completes."
+        NSSpeechRecognitionUsageDescription: "GemmaHost uses speech recognition to convert your spoken task into text."

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/events/run.step_completed.schema.json",
+  "title": "RunStepCompletedEventPayload",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "step_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "step_description": {
+      "type": "string"
+    },
+    "tool_calls_in_step": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "checkpoint_saved": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "step_index",
+    "step_description",
+    "tool_calls_in_step",
+    "checkpoint_saved"
+  ]
+}

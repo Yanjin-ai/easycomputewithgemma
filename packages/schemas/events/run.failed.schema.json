@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/events/run.failed.schema.json",
+  "title": "RunFailedEventPayload",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "failure_reason": {
+      "type": "string"
+    },
+    "failure_category": {
+      "type": "string",
+      "enum": [
+        "model_error",
+        "tool_error",
+        "timeout",
+        "resource"
+      ]
+    },
+    "is_retryable": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "failure_reason",
+    "failure_category",
+    "is_retryable"
+  ]
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Gemma4all launchd agent — auto-starts control plane + desktop runtime on login.
+
+  Install:
+    cp scripts/com.gemma4all.runtime.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.gemma4all.runtime.plist
+
+  Uninstall:
+    launchctl unload ~/Library/LaunchAgents/com.gemma4all.runtime.plist
+    rm ~/Library/LaunchAgents/com.gemma4all.runtime.plist
+
+  View logs:
+    tail -f /tmp/gemma4all.stdout.log
+    tail -f /tmp/gemma4all.stderr.log
+
+  Override model (edit this file or set env before loading):
+    <key>MODEL</key><string>e4b</string>
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.gemma4all.runtime</string>
+
+  <!-- Use bash to expand ~ and source shell profile -->
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>-l</string>
+    <string>-c</string>
+    <!-- EDIT: replace /path/to/Gemma4all with your actual repo path -->
+    <string>exec bash "/path/to/Gemma4all/scripts/start_all.sh"</string>
+  </array>
+
+  <!-- Start after login, restart if it crashes -->
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+
+  <!-- Environment variables — override as needed -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>MODEL</key>
+    <string>e2b</string>
+    <key>CONTROL_PLANE_URL</key>
+    <string>http://localhost:3000</string>
+    <key>HOME</key>
+    <string>/Users/YOURUSERNAME</string>
+    <!-- EDIT: replace YOURUSERNAME with your macOS username (whoami) -->
+  </dict>
+
+  <!-- Log files -->
+  <key>StandardOutPath</key>
+  <string>/tmp/gemma4all.stdout.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/gemma4all.stderr.log</string>
+
+  <!-- Throttle restarts: wait 10s before restarting after crash -->
+  <key>ThrottleInterval</key>
+  <integer>10</integer>
+</dict>
+</plist>

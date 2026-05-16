@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/checkpoint-data.schema.json",
+  "title": "CheckpointData",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "steps_completed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "step_id": {
+            "type": "string"
+          },
+          "output_summary": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "step_id",
+          "output_summary"
+        ]
+      }
+    },
+    "current_step": {
+      "type": "string"
+    },
+    "tool_call_history": {
+      "type": "array",
+      "$comment": "Structure TBD when tool execution protocol is defined."
+    },
+    "variables": {
+      "type": "object"
+    },
+    "pending_actions": {
+      "type": "array",
+      "$comment": "Structure TBD when tool execution protocol is defined."
+    },
+    "runtime_specific": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "steps_completed",
+    "current_step",
+    "tool_call_history",
+    "variables",
+    "pending_actions",
+    "runtime_specific"
+  ]
+}

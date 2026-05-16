@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/events/task.submitted.schema.json",
+  "title": "TaskSubmittedEventPayload",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "task_title": {
+      "type": "string"
+    },
+    "intent_summary": {
+      "type": "string"
+    },
+    "permission_level": {
+      "$ref": "../common.schema.json#/$defs/permission_level"
+    },
+    "submitted_by": {
+      "$ref": "../common.schema.json#/$defs/uuid"
+    }
+  },
+  "required": [
+    "task_title",
+    "intent_summary",
+    "permission_level",
+    "submitted_by"
+  ]
+}

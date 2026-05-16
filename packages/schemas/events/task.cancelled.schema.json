@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/events/task.cancelled.schema.json",
+  "title": "TaskCancelledEventPayload",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "cancelled_by": {
+      "type": "string",
+      "enum": [
+        "user",
+        "system"
+      ]
+    },
+    "cancel_reason": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "cancelled_by",
+    "cancel_reason"
+  ]
+}

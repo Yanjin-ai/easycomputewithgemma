@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/device.schema.json",
+  "title": "Device",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/schema_version"
+    },
+    "device_id": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "account_id": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "device_name": {
+      "type": "string"
+    },
+    "runtime_type": {
+      "type": "string",
+      "enum": [
+        "mobile",
+        "desktop",
+        "cloud"
+      ]
+    },
+    "permission_scope": {
+      "$ref": "common.schema.json#/$defs/permission_level"
+    },
+    "registered_at": {
+      "$ref": "common.schema.json#/$defs/timestamp"
+    },
+    "last_seen_at": {
+      "$ref": "common.schema.json#/$defs/timestamp"
+    },
+    "is_online": {
+      "type": "boolean"
+    },
+    "is_active": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "device_id",
+    "account_id",
+    "device_name",
+    "runtime_type",
+    "permission_scope",
+    "registered_at",
+    "last_seen_at",
+    "is_online",
+    "is_active"
+  ]
+}

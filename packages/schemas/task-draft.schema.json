@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/task-draft.schema.json",
+  "title": "TaskDraft",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/schema_version"
+    },
+    "intent": {
+      "type": "string"
+    },
+    "goal": {
+      "type": "object"
+    },
+    "required_tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "complexity_hint": {
+      "$ref": "common.schema.json#/$defs/complexity_hint"
+    },
+    "permission_level": {
+      "$ref": "common.schema.json#/$defs/permission_level"
+    },
+    "raw_input": {
+      "type": "string",
+      "description": "User original input for debug."
+    }
+  },
+  "required": [
+    "schema_version",
+    "intent",
+    "goal",
+    "required_tools",
+    "required_capabilities",
+    "complexity_hint",
+    "permission_level",
+    "raw_input"
+  ]
+}

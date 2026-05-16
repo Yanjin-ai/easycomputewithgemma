@@ -1,0 +1,44 @@
+name: GemmaMenuBar
+
+options:
+  bundleIdPrefix: com.gemma4all
+  deploymentTarget:
+    macOS: "13.0"
+  xcodeVersion: "15"
+  generateEmptyDirectories: false
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    ENABLE_PREVIEWS: "YES"
+
+targets:
+  GemmaMenuBar:
+    type: application
+    platform: macOS
+    deploymentTarget: "13.0"
+
+    sources:
+      - path: .
+        excludes:
+          - "project.yml"
+          - "GemmaMenuBar.xcodeproj/**"
+          - "GemmaMenuBar.entitlements"
+          - "**/.DS_Store"
+
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.gemma4all.GemmaMenuBar
+        INFOPLIST_FILE: Info.plist
+        PRODUCT_NAME: GemmaMenuBar
+        CODE_SIGN_STYLE: Automatic
+        # Allows HTTP to local network (control plane) and Keychain access
+        CODE_SIGN_ENTITLEMENTS: GemmaMenuBar.entitlements
+
+    info:
+      path: Info.plist
+      properties:
+        CFBundleVersion: "1"
+        CFBundleShortVersionString: "0.1.0"
+        LSUIElement: true
+        LSMinimumSystemVersion: "13.0"

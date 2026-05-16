@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/artifact.schema.json",
+  "title": "Artifact",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/schema_version"
+    },
+    "artifact_id": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "artifact_type": {
+      "type": "string",
+      "enum": [
+        "file",
+        "text",
+        "structured"
+      ]
+    },
+    "artifact_state": {
+      "$ref": "common.schema.json#/$defs/artifact_state"
+    },
+    "created_by_run_id": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "storage_ref": {
+      "type": "string"
+    },
+    "size_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "content_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "artifact_id",
+    "artifact_type",
+    "artifact_state",
+    "created_by_run_id"
+  ]
+}

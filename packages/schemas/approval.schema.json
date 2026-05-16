@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/approval.schema.json",
+  "title": "Approval",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/schema_version"
+    },
+    "approval_id": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "task_id": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "run_id": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "state": {
+      "$ref": "common.schema.json#/$defs/approval_state"
+    },
+    "trigger_type": {
+      "type": "string",
+      "enum": [
+        "tool",
+        "routing",
+        "task_attribute",
+        "user"
+      ]
+    },
+    "trigger_detail": {
+      "type": "object"
+    },
+    "action_description": {
+      "type": "string"
+    },
+    "requested_at": {
+      "$ref": "common.schema.json#/$defs/timestamp"
+    },
+    "expires_at": {
+      "$ref": "common.schema.json#/$defs/timestamp"
+    },
+    "responded_at": {
+      "$ref": "common.schema.json#/$defs/timestamp"
+    },
+    "responded_by": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "response_note": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "approval_id",
+    "task_id",
+    "run_id",
+    "state",
+    "trigger_type",
+    "trigger_detail",
+    "action_description",
+    "requested_at",
+    "expires_at"
+  ]
+}

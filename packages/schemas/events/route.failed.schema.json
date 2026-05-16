@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/events/route.failed.schema.json",
+  "title": "RouteFailedEventPayload",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "failure_reason": {
+      "type": "string",
+      "enum": [
+        "no_runtime_online",
+        "permission_blocked",
+        "capability_gap",
+        "local_only_no_runtime"
+      ]
+    }
+  },
+  "required": [
+    "failure_reason"
+  ]
+}

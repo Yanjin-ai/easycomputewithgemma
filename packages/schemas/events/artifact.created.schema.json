@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/events/artifact.created.schema.json",
+  "title": "ArtifactCreatedEventPayload",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "$ref": "../common.schema.json#/$defs/uuid"
+    },
+    "artifact_type": {
+      "type": "string",
+      "enum": [
+        "file",
+        "text",
+        "structured"
+      ]
+    },
+    "created_by_run_id": {
+      "$ref": "../common.schema.json#/$defs/uuid"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_type",
+    "created_by_run_id"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/events/run.created.schema.json",
+  "title": "RunCreatedEventPayload",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "runtime": {
+      "$ref": "../common.schema.json#/$defs/runtime"
+    },
+    "attempt_index": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "handoff_id": {
+      "$ref": "../common.schema.json#/$defs/uuid"
+    }
+  },
+  "required": [
+    "runtime",
+    "attempt_index"
+  ]
+}

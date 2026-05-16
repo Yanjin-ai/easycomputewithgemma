@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/events/route.started.schema.json",
+  "title": "RouteStartedEventPayload",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "routing_inputs": {
+      "type": "object",
+      "description": "snapshot of routing inputs"
+    }
+  },
+  "required": [
+    "routing_inputs"
+  ]
+}

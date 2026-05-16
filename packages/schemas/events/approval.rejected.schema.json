@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/events/approval.rejected.schema.json",
+  "title": "ApprovalRejectedEventPayload",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "approval_id": {
+      "$ref": "../common.schema.json#/$defs/uuid"
+    },
+    "rejected_by": {
+      "$ref": "../common.schema.json#/$defs/uuid"
+    },
+    "rejection_reason": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "approval_id",
+    "rejected_by",
+    "rejection_reason"
+  ]
+}

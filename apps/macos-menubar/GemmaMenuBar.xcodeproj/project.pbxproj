@@ -1,0 +1,314 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B345A828F8D6D2039632D1A /* ControlPlaneClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBBD08F57037D4DD74675C0 /* ControlPlaneClient.swift */; };
+		3B85078271C7C5BA7F3E00D9 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F65C126DE063DE1C8651A0 /* StatusBarController.swift */; };
+		55C9235FB77C811489C006E0 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522E0D1C3E7D8D1770E4698C /* MenuBarView.swift */; };
+		5BFCC5A420A4E5F5A1589402 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81833F8879BD34D63ACED01 /* Models.swift */; };
+		5CB6FC4E5E12229E1D9461C9 /* GemmaMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2311B81BC57300FD4CA9418 /* GemmaMenuBar.swift */; };
+		7BA1A7F875C875E8021967CC /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D878A056CDD9B95C4FFAB62 /* KeychainHelper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2D878A056CDD9B95C4FFAB62 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		522E0D1C3E7D8D1770E4698C /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		7424607FF59EB91475A61BCE /* GemmaMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GemmaMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88F65C126DE063DE1C8651A0 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
+		A81833F8879BD34D63ACED01 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		C5DD0A10980596215C9BDA81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E2311B81BC57300FD4CA9418 /* GemmaMenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemmaMenuBar.swift; sourceTree = "<group>"; };
+		EDBBD08F57037D4DD74675C0 /* ControlPlaneClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPlaneClient.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		7E1B70440FF1B5F6DB7419CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7424607FF59EB91475A61BCE /* GemmaMenuBar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9A961A8B328B4432534CFC6D = {
+			isa = PBXGroup;
+			children = (
+				C62C48333E0C5E56F0C5C26C /* macos-menubar */,
+				7E1B70440FF1B5F6DB7419CF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C62C48333E0C5E56F0C5C26C /* macos-menubar */ = {
+			isa = PBXGroup;
+			children = (
+				EDBBD08F57037D4DD74675C0 /* ControlPlaneClient.swift */,
+				E2311B81BC57300FD4CA9418 /* GemmaMenuBar.swift */,
+				C5DD0A10980596215C9BDA81 /* Info.plist */,
+				2D878A056CDD9B95C4FFAB62 /* KeychainHelper.swift */,
+				522E0D1C3E7D8D1770E4698C /* MenuBarView.swift */,
+				A81833F8879BD34D63ACED01 /* Models.swift */,
+				88F65C126DE063DE1C8651A0 /* StatusBarController.swift */,
+			);
+			name = "macos-menubar";
+			path = .;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		42D5883EEAC2E7F981CD4899 /* GemmaMenuBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 261158326DF5F661C029B6B5 /* Build configuration list for PBXNativeTarget "GemmaMenuBar" */;
+			buildPhases = (
+				419181FC6B33D9662D953962 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GemmaMenuBar;
+			packageProductDependencies = (
+			);
+			productName = GemmaMenuBar;
+			productReference = 7424607FF59EB91475A61BCE /* GemmaMenuBar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88A7243B74326FF7437FDF30 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					42D5883EEAC2E7F981CD4899 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 001D6640A1798F099EE9CEFC /* Build configuration list for PBXProject "GemmaMenuBar" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 9A961A8B328B4432534CFC6D;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 7E1B70440FF1B5F6DB7419CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				42D5883EEAC2E7F981CD4899 /* GemmaMenuBar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		419181FC6B33D9662D953962 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B345A828F8D6D2039632D1A /* ControlPlaneClient.swift in Sources */,
+				5CB6FC4E5E12229E1D9461C9 /* GemmaMenuBar.swift in Sources */,
+				7BA1A7F875C875E8021967CC /* KeychainHelper.swift in Sources */,
+				55C9235FB77C811489C006E0 /* MenuBarView.swift in Sources */,
+				5BFCC5A420A4E5F5A1589402 /* Models.swift in Sources */,
+				3B85078271C7C5BA7F3E00D9 /* StatusBarController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0429C8825BD80292A891FA9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		3C7F77B7698A6A8C47D4F2FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		51AE376012FF06F679DA3F12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GemmaMenuBar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gemma4all.GemmaMenuBar;
+				PRODUCT_NAME = GemmaMenuBar;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		8C61D45AF714077A1DFA473D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GemmaMenuBar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gemma4all.GemmaMenuBar;
+				PRODUCT_NAME = GemmaMenuBar;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		001D6640A1798F099EE9CEFC /* Build configuration list for PBXProject "GemmaMenuBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0429C8825BD80292A891FA9E /* Debug */,
+				3C7F77B7698A6A8C47D4F2FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		261158326DF5F661C029B6B5 /* Build configuration list for PBXNativeTarget "GemmaMenuBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51AE376012FF06F679DA3F12 /* Debug */,
+				8C61D45AF714077A1DFA473D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 88A7243B74326FF7437FDF30 /* Project object */;
+}

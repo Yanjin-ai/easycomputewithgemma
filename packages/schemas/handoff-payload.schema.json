@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/handoff-payload.schema.json",
+  "title": "HandoffPayload",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/schema_version"
+    },
+    "handoff_id": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "task_id": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "source_run_id": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "target_runtime": {
+      "$ref": "common.schema.json#/$defs/runtime"
+    },
+    "permission_level": {
+      "$ref": "common.schema.json#/$defs/permission_level"
+    },
+    "checkpoint_data": {
+      "$ref": "checkpoint-data.schema.json"
+    },
+    "task_context": {
+      "$ref": "task-context.schema.json"
+    },
+    "initiated_by": {
+      "type": "string",
+      "enum": [
+        "system",
+        "user"
+      ]
+    },
+    "initiated_at": {
+      "$ref": "common.schema.json#/$defs/timestamp"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "artifact_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/uuid"
+      }
+    },
+    "tool_results_cache": {
+      "type": "object"
+    },
+    "preferred_model": {
+      "type": "string"
+    },
+    "deadline": {
+      "$ref": "common.schema.json#/$defs/timestamp"
+    }
+  },
+  "required": [
+    "schema_version",
+    "handoff_id",
+    "task_id",
+    "source_run_id",
+    "target_runtime",
+    "permission_level",
+    "checkpoint_data",
+    "task_context",
+    "initiated_by",
+    "initiated_at",
+    "reason"
+  ]
+}

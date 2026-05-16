@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/events/handoff.dispatched.schema.json",
+  "title": "HandoffDispatchedEventPayload",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "handoff_id": {
+      "$ref": "../common.schema.json#/$defs/uuid"
+    },
+    "dispatched_at": {
+      "$ref": "../common.schema.json#/$defs/timestamp"
+    }
+  },
+  "required": [
+    "handoff_id",
+    "dispatched_at"
+  ]
+}

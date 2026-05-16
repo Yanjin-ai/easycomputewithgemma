@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/event.schema.json",
+  "title": "Event",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/schema_version"
+    },
+    "event_id": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "task.submitted",
+        "task.completed",
+        "task.failed",
+        "task.cancelled",
+        "task.retry_requested",
+        "route.started",
+        "route.decided",
+        "route.failed",
+        "run.created",
+        "run.started",
+        "run.step_completed",
+        "run.checkpoint_saved",
+        "run.paused",
+        "run.resumed",
+        "run.completed",
+        "run.failed",
+        "handoff.initiated",
+        "handoff.dispatched",
+        "handoff.received",
+        "handoff.accepted",
+        "handoff.rejected",
+        "approval.requested",
+        "approval.granted",
+        "approval.rejected",
+        "approval.expired",
+        "artifact.created",
+        "artifact.uploaded"
+      ]
+    },
+    "task_id": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "run_id": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "source": {
+      "$ref": "common.schema.json#/$defs/event_source"
+    },
+    "emitted_at": {
+      "$ref": "common.schema.json#/$defs/timestamp"
+    },
+    "recorded_at": {
+      "$ref": "common.schema.json#/$defs/timestamp"
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "event_id",
+    "event_type",
+    "task_id",
+    "source",
+    "emitted_at",
+    "recorded_at",
+    "payload"
+  ]
+}

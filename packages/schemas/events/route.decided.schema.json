@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/events/route.decided.schema.json",
+  "title": "RouteDecidedEventPayload",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "target_runtime": {
+      "$ref": "../common.schema.json#/$defs/runtime"
+    },
+    "decision_reason": {
+      "type": "string"
+    },
+    "policy_version": {
+      "$ref": "../common.schema.json#/$defs/schema_version"
+    },
+    "considered_runtimes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "runtime_id": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string",
+            "enum": [
+              "selected",
+              "excluded"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "runtime_id",
+          "result",
+          "reason"
+        ]
+      }
+    }
+  },
+  "required": [
+    "target_runtime",
+    "decision_reason",
+    "policy_version",
+    "considered_runtimes"
+  ]
+}

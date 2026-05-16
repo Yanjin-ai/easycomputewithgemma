@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/events/run.completed.schema.json",
+  "title": "RunCompletedEventPayload",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "duration_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "step_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "artifact_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "../common.schema.json#/$defs/uuid"
+      }
+    }
+  },
+  "required": [
+    "duration_ms",
+    "step_count",
+    "artifact_ids"
+  ]
+}

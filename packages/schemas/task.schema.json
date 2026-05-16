@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/task.schema.json",
+  "title": "Task",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/schema_version"
+    },
+    "task_id": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "account_id": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "task_title": {
+      "type": "string"
+    },
+    "intent_summary": {
+      "type": "string"
+    },
+    "permission_level": {
+      "$ref": "common.schema.json#/$defs/permission_level"
+    },
+    "current_state": {
+      "$ref": "common.schema.json#/$defs/task_state"
+    },
+    "current_runtime": {
+      "description": "Denormalized current runtime for observability views.",
+      "$ref": "common.schema.json#/$defs/runtime"
+    },
+    "required_tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "complexity_hint": {
+      "$ref": "common.schema.json#/$defs/complexity_hint"
+    },
+    "submitted_by": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "created_at": {
+      "$ref": "common.schema.json#/$defs/timestamp"
+    },
+    "last_updated_at": {
+      "$ref": "common.schema.json#/$defs/timestamp"
+    },
+    "pending_approval": {
+      "type": "boolean"
+    },
+    "total_run_count": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "task_id",
+    "account_id",
+    "task_title",
+    "intent_summary",
+    "permission_level",
+    "current_state",
+    "required_tools",
+    "required_capabilities",
+    "complexity_hint",
+    "submitted_by",
+    "created_at",
+    "last_updated_at",
+    "pending_approval",
+    "total_run_count"
+  ]
+}

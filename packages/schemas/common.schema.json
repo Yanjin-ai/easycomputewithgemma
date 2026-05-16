@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/common.schema.json",
+  "title": "Common schema definitions",
+  "schema_version": "1.0.0",
+  "$defs": {
+    "uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "runtime": {
+      "type": "string",
+      "enum": [
+        "mobile",
+        "desktop",
+        "cloud"
+      ]
+    },
+    "event_source": {
+      "type": "string",
+      "enum": [
+        "control-plane",
+        "mobile",
+        "desktop",
+        "cloud"
+      ]
+    },
+    "permission_level": {
+      "type": "string",
+      "enum": [
+        "local_only",
+        "private_lan",
+        "cloud_ok"
+      ]
+    },
+    "complexity_hint": {
+      "type": "string",
+      "enum": [
+        "light",
+        "medium",
+        "heavy"
+      ]
+    },
+    "task_state": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "pending",
+        "routing",
+        "scheduled",
+        "running",
+        "paused",
+        "completed",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "run_state": {
+      "type": "string",
+      "enum": [
+        "created",
+        "started",
+        "paused",
+        "completed",
+        "failed",
+        "handed_off",
+        "cancelled"
+      ]
+    },
+    "approval_state": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected",
+        "expired",
+        "superseded"
+      ]
+    },
+    "artifact_state": {
+      "type": "string",
+      "enum": [
+        "created",
+        "uploaded"
+      ]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/events/approval.granted.schema.json",
+  "title": "ApprovalGrantedEventPayload",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "approval_id": {
+      "$ref": "../common.schema.json#/$defs/uuid"
+    },
+    "granted_by": {
+      "$ref": "../common.schema.json#/$defs/uuid"
+    },
+    "granted_at": {
+      "$ref": "../common.schema.json#/$defs/timestamp"
+    }
+  },
+  "required": [
+    "approval_id",
+    "granted_by",
+    "granted_at"
+  ]
+}

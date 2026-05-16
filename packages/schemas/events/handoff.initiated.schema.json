@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gemma4all.local/schemas/events/handoff.initiated.schema.json",
+  "title": "HandoffInitiatedEventPayload",
+  "type": "object",
+  "schema_version": "1.0.0",
+  "additionalProperties": false,
+  "properties": {
+    "handoff_id": {
+      "$ref": "../common.schema.json#/$defs/uuid"
+    },
+    "source_run_id": {
+      "$ref": "../common.schema.json#/$defs/uuid"
+    },
+    "target_runtime": {
+      "$ref": "../common.schema.json#/$defs/runtime"
+    },
+    "initiated_by": {
+      "type": "string",
+      "enum": [
+        "system",
+        "user"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "handoff_id",
+    "source_run_id",
+    "target_runtime",
+    "initiated_by",
+    "reason"
+  ]
+}
