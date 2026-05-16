@@ -26,6 +26,14 @@ targets:
           - "GemmaMenuBar.entitlements"
           - "**/.DS_Store"
 
+    resources:
+      - path: ../../services/control-plane/dist-bin/gemma4all-cp-macos
+        optional: true
+      - path: ../../services/control-plane/dist-bin/better_sqlite3.node
+        optional: true
+      - path: ../../services/control-plane/dist-bin/schemas
+        optional: true
+
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.gemma4all.GemmaMenuBar

@@ -28,8 +28,8 @@ export function tasksRouter(
   }
 
   async function computeQueuePosition(task: Task): Promise<number | null> {
-    if (task.current_state !== "queued") return null;
-    const queuedTasks = await taskService.list(500, undefined, "queued");
+    if (task.current_state !== "pending") return null;
+    const queuedTasks = await taskService.list(500, undefined, "pending");
     // list() returns DESC; sort ASC so earliest created_at = position 1
     const sorted = queuedTasks
       .slice()

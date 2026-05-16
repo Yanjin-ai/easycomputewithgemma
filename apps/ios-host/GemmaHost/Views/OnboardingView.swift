@@ -13,6 +13,7 @@ struct OnboardingView: View {
     @State private var validationError: String?
     @State private var connectionStatus: ConnectionStatus = .idle
     @State private var isTestingConnection = false
+    @StateObject private var discovery = BonjourDiscovery()
 
     private let runtimeCommand = "bash scripts/start_all.sh"
 
@@ -44,6 +45,11 @@ struct OnboardingView: View {
         }
         .background(Color(.systemBackground))
         .interactiveDismissDisabled()
+        .onChange(of: page) {
+            if page == 2, discovery.discoveredHosts.isEmpty, !discovery.isSearching {
+                discovery.startSearch()
+            }
+        }
     }
 
     private var introPage: some View {
@@ -107,6 +113,18 @@ struct OnboardingView: View {
                 Text("Enter your Mac's local IP address.")
                     .foregroundStyle(.secondary)
 
+                BonjourDiscoverySection(
+                    discovery: discovery,
+                    scanButtonTitle: "Scan",
+                    selectedURLString: baseURLString
+                ) { url in
+                    baseURLString = url.absoluteString
+                    connectionStatus = .idle
+                    _Concurrency.Task {
+                        await testConnection()
+                    }
+                }
+
                 VStack(alignment: .leading, spacing: 8) {
                     TextField(
                         "e.g. http://100.x.x.x:3000 (Tailscale) or http://192.168.x.x:3000 (LAN)",
@@ -155,6 +173,11 @@ struct OnboardingView: View {
         }
         .padding(.horizontal, 32)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onAppear {
+            if discovery.discoveredHosts.isEmpty, !discovery.isSearching {
+                discovery.startSearch()
+            }
+        }
     }
 
     @ViewBuilder

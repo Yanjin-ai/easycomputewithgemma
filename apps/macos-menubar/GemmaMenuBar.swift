@@ -14,18 +14,37 @@ struct GemmaMenuBarApp: App {
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private var model: MenuBarModel?
+    private var serviceManager: ServiceManager?
+    private var modelManager: ModelDownloadManager?
+    private var bonjourRegistrar: BonjourRegistrar?
     private var statusBarController: StatusBarController?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.setActivationPolicy(.accessory)
 
         let model = MenuBarModel()
+        let bonjourRegistrar = BonjourRegistrar()
+        let serviceManager = ServiceManager(bonjourRegistrar: bonjourRegistrar)
+        let modelManager = ModelDownloadManager()
         self.model = model
-        self.statusBarController = StatusBarController(model: model)
+        self.serviceManager = serviceManager
+        self.modelManager = modelManager
+        self.bonjourRegistrar = bonjourRegistrar
+        self.statusBarController = StatusBarController(
+            model: model,
+            serviceManager: serviceManager,
+            modelManager: modelManager
+        )
 
         Task {
-            await model.start()
+            await serviceManager.checkStatus()
+            modelManager.checkModel()
+            await model.start(serviceManager: serviceManager)
         }
+    }
+
+    func applicationWillTerminate(_ notification: Notification) {
+        bonjourRegistrar?.stopAdvertising()
     }
 }
 
@@ -45,9 +64,20 @@ final class MenuBarModel: ObservableObject {
     private var deviceId: String?
     private var pollingTask: Task<Void, Never>?
 
-    func start() async {
+    func start(serviceManager: ServiceManager) async {
         deviceId = keychain.string(forKey: deviceIdKey)
         apiKey = keychain.string(forKey: apiKeyKey)
+
+        while !Task.isCancelled, !serviceManager.controlPlaneState.isRunning {
+            await serviceManager.checkStatus()
+            if !serviceManager.controlPlaneState.isRunning {
+                try? await Task.sleep(nanoseconds: 1_000_000_000)
+            }
+        }
+
+        guard !Task.isCancelled else {
+            return
+        }
 
         if deviceId == nil {
             await registerDevice()

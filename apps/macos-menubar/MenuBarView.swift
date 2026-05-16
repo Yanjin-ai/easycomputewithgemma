@@ -2,9 +2,14 @@ import SwiftUI
 
 struct MenuBarView: View {
     @EnvironmentObject private var model: MenuBarModel
+    @EnvironmentObject private var serviceManager: ServiceManager
+    @EnvironmentObject private var modelManager: ModelDownloadManager
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
+            serviceStatusSection
+            modelStatusSection
+            Divider()
             header
 
             VStack(alignment: .leading, spacing: 8) {
@@ -62,6 +67,82 @@ struct MenuBarView: View {
                     .scaleEffect(0.55)
             }
         }
+    }
+
+    private var serviceStatusSection: some View {
+        HStack {
+            Circle()
+                .fill(serviceManager.controlPlaneState.color)
+                .frame(width: 8, height: 8)
+            Text("Control Plane: \(serviceManager.controlPlaneState.displayText)")
+                .font(.caption)
+            Spacer()
+            if !serviceManager.controlPlaneState.isRunning {
+                Button("Start") {
+                    Task {
+                        await serviceManager.startServices()
+                    }
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.mini)
+            } else {
+                Button("Stop") {
+                    Task {
+                        await serviceManager.stopServices()
+                    }
+                }
+                .buttonStyle(.bordered)
+                .controlSize(.mini)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var modelStatusSection: some View {
+        switch modelManager.state {
+        case .notFound:
+            HStack {
+                Image(systemName: "exclamationmark.triangle")
+                    .foregroundStyle(.orange)
+                Text("Model not downloaded")
+                    .font(.caption)
+                Spacer()
+                Button("Download E2B (2.6 GB)") {
+                    modelManager.downloadModel(variant: "e2b")
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.mini)
+            }
+        case .downloading(let progress, let received, let total):
+            VStack(alignment: .leading) {
+                ProgressView(value: progress) {
+                    Text("Downloading E2B...")
+                }
+                Text("\(bytesString(received)) / \(bytesString(total))")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+            }
+        case .ready:
+            Label("Model ready", systemImage: "checkmark.circle.fill")
+                .font(.caption)
+                .foregroundStyle(.green)
+        case .failed(let message):
+            Text(message)
+                .font(.caption)
+                .foregroundStyle(.red)
+                .fixedSize(horizontal: false, vertical: true)
+        case .checking:
+            ProgressView()
+                .scaleEffect(0.5)
+        }
+    }
+
+    private func bytesString(_ bytes: Int64) -> String {
+        guard bytes > 0 else {
+            return "--"
+        }
+
+        return ByteCountFormatter.string(fromByteCount: bytes, countStyle: .file)
     }
 }
 

@@ -26,6 +26,9 @@ targets:
         excludes:
           - "**/.DS_Store"
 
+    dependencies:
+      - sdk: AppIntents.framework
+
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.gemma4all.GemmaHost
@@ -59,11 +62,9 @@ targets:
         # Allow HTTP to local-network control plane (no TLS in dev)
         NSAppTransportSecurity:
           NSAllowsLocalNetworking: true
-          NSExceptionDomains:
-            192.168.1.141:
-              NSExceptionAllowsInsecureHTTPLoads: true
-              NSIncludesSubdomains: false
-        NSLocalNetworkUsageDescription: "GemmaHost connects to your Mac's Gemma control plane on the local network."
+        NSLocalNetworkUsageDescription: "Gemma4all needs local network access to discover your Mac automatically."
+        NSBonjourServices:
+          - _gemma4all._tcp
         NSMicrophoneUsageDescription: "GemmaHost uses the microphone to let you dictate tasks by voice."
         NSUserNotificationsUsageDescription: "GemmaHost notifies you when a task completes."
         NSSpeechRecognitionUsageDescription: "GemmaHost uses speech recognition to convert your spoken task into text."

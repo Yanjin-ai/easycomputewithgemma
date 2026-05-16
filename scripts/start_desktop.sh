@@ -6,7 +6,7 @@
 #   BACKEND=cpu bash scripts/start_desktop.sh  # CPU backend (non-Apple-Silicon)
 #
 # Environment overrides (all optional):
-#   CONTROL_PLANE_URL   default: http://192.168.1.141:3000
+#   CONTROL_PLANE_URL   default: http://localhost:3000
 #   MODEL               e2b (default) | e4b | full path
 #   BACKEND             gpu (default on macOS) | cpu
 #   POLL_INTERVAL_S     default: 10
@@ -59,7 +59,7 @@ fi
 ok "Backend: $BACKEND"
 
 # ── Control plane URL ─────────────────────────────────────────────────────────
-CONTROL_PLANE_URL="${CONTROL_PLANE_URL:-http://192.168.1.141:3000}"
+CONTROL_PLANE_URL="${CONTROL_PLANE_URL:-http://localhost:3000}"
 ok "Control plane: $CONTROL_PLANE_URL"
 
 # ── Check uv is available ─────────────────────────────────────────────────────

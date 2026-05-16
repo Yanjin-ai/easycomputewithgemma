@@ -7,19 +7,30 @@ final class StatusBarController {
     private let statusItem: NSStatusItem
     private let popover: NSPopover
     private let model: MenuBarModel
+    private let serviceManager: ServiceManager
+    private let modelManager: ModelDownloadManager
     private var cancellables = Set<AnyCancellable>()
     private var animationTimer: Timer?
     private var rotation: CGFloat = 0
 
-    init(model: MenuBarModel) {
+    init(
+        model: MenuBarModel,
+        serviceManager: ServiceManager,
+        modelManager: ModelDownloadManager
+    ) {
         self.model = model
+        self.serviceManager = serviceManager
+        self.modelManager = modelManager
         self.statusItem = NSStatusBar.system.statusItem(withLength: 30)
         self.popover = NSPopover()
 
         popover.behavior = .transient
-        popover.contentSize = NSSize(width: 320, height: 360)
+        popover.contentSize = NSSize(width: 360, height: 430)
         popover.contentViewController = NSHostingController(
-            rootView: MenuBarView().environmentObject(model)
+            rootView: MenuBarView()
+                .environmentObject(model)
+                .environmentObject(serviceManager)
+                .environmentObject(modelManager)
         )
 
         configureButton()

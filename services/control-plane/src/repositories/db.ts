@@ -7,7 +7,10 @@ const dbDirectory = path.dirname(dbPath);
 
 fs.mkdirSync(dbDirectory, { recursive: true });
 
-export const db = new Database(dbPath);
+export const db = new Database(
+  dbPath,
+  process.env.BETTER_SQLITE3_BINDING ? { nativeBinding: process.env.BETTER_SQLITE3_BINDING } : undefined
+);
 
 db.pragma("journal_mode = WAL");
 

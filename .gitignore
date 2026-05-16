@@ -1,9 +1,15 @@
 # ── API keys & secrets ────────────────────────────────────────────────────────
 .desktop_api_key
+.cloud_api_key
+.web_api_key
 *.api_key
+*.api_key.registration.json
+*.registration.json
 .env
 .env.*
 !.env.example
+secrets/
+*.secret
 
 # ── Model files (large binaries) ──────────────────────────────────────────────
 *.litertlm
@@ -15,6 +21,7 @@ models/
 # ── Node.js ───────────────────────────────────────────────────────────────────
 node_modules/
 dist/
+services/control-plane/dist-bin/
 *.tsbuildinfo
 .npm
 
@@ -25,7 +32,6 @@ __pycache__/
 *.pyo
 *.egg-info/
 .eggs/
-dist/
 build/
 *.dist-info/
 .pytest_cache/
@@ -68,6 +74,9 @@ logs/
 tmp/
 temp/
 eval_results_*.json
+
+# ── Claude Code session data ─────────────────────────────────────────────────
+.claude/
 
 # ── Editor ───────────────────────────────────────────────────────────────────
 .vscode/

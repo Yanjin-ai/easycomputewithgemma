@@ -22,19 +22,13 @@
 	<dict>
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>192.168.1.141</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-				<key>NSIncludesSubdomains</key>
-				<false/>
-			</dict>
-		</dict>
 	</dict>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_gemma4all._tcp</string>
+	</array>
 	<key>NSLocalNetworkUsageDescription</key>
-	<string>GemmaHost connects to your Mac's Gemma control plane on the local network.</string>
+	<string>Gemma4all needs local network access to discover your Mac automatically.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>GemmaHost uses the microphone to let you dictate tasks by voice.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>

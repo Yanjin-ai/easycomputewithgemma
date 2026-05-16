@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09E59ABB8B45FB53214A3A4E /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B99A5725CCCB03B2E60D901 /* ServiceManager.swift */; };
 		0B345A828F8D6D2039632D1A /* ControlPlaneClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBBD08F57037D4DD74675C0 /* ControlPlaneClient.swift */; };
+		1C57FCADAC6BE753D6E68D55 /* ModelDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB00361BD3199E5CDA79FA88 /* ModelDownloadManager.swift */; };
 		3B85078271C7C5BA7F3E00D9 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F65C126DE063DE1C8651A0 /* StatusBarController.swift */; };
 		55C9235FB77C811489C006E0 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522E0D1C3E7D8D1770E4698C /* MenuBarView.swift */; };
 		5BFCC5A420A4E5F5A1589402 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81833F8879BD34D63ACED01 /* Models.swift */; };
 		5CB6FC4E5E12229E1D9461C9 /* GemmaMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2311B81BC57300FD4CA9418 /* GemmaMenuBar.swift */; };
 		7BA1A7F875C875E8021967CC /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D878A056CDD9B95C4FFAB62 /* KeychainHelper.swift */; };
+		9D50AD863539B28DBAB102E8 /* BonjourRegistrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75484A9A72027C7B12C1F2F /* BonjourRegistrar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B99A5725CCCB03B2E60D901 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		2D878A056CDD9B95C4FFAB62 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		522E0D1C3E7D8D1770E4698C /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
 		7424607FF59EB91475A61BCE /* GemmaMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GemmaMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -23,6 +27,8 @@
 		A81833F8879BD34D63ACED01 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		C5DD0A10980596215C9BDA81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E2311B81BC57300FD4CA9418 /* GemmaMenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemmaMenuBar.swift; sourceTree = "<group>"; };
+		E75484A9A72027C7B12C1F2F /* BonjourRegistrar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourRegistrar.swift; sourceTree = "<group>"; };
+		EB00361BD3199E5CDA79FA88 /* ModelDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDownloadManager.swift; sourceTree = "<group>"; };
 		EDBBD08F57037D4DD74675C0 /* ControlPlaneClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPlaneClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,12 +52,15 @@
 		C62C48333E0C5E56F0C5C26C /* macos-menubar */ = {
 			isa = PBXGroup;
 			children = (
+				E75484A9A72027C7B12C1F2F /* BonjourRegistrar.swift */,
 				EDBBD08F57037D4DD74675C0 /* ControlPlaneClient.swift */,
 				E2311B81BC57300FD4CA9418 /* GemmaMenuBar.swift */,
 				C5DD0A10980596215C9BDA81 /* Info.plist */,
 				2D878A056CDD9B95C4FFAB62 /* KeychainHelper.swift */,
 				522E0D1C3E7D8D1770E4698C /* MenuBarView.swift */,
+				EB00361BD3199E5CDA79FA88 /* ModelDownloadManager.swift */,
 				A81833F8879BD34D63ACED01 /* Models.swift */,
+				2B99A5725CCCB03B2E60D901 /* ServiceManager.swift */,
 				88F65C126DE063DE1C8651A0 /* StatusBarController.swift */,
 			);
 			name = "macos-menubar";
@@ -116,11 +125,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D50AD863539B28DBAB102E8 /* BonjourRegistrar.swift in Sources */,
 				0B345A828F8D6D2039632D1A /* ControlPlaneClient.swift in Sources */,
 				5CB6FC4E5E12229E1D9461C9 /* GemmaMenuBar.swift in Sources */,
 				7BA1A7F875C875E8021967CC /* KeychainHelper.swift in Sources */,
 				55C9235FB77C811489C006E0 /* MenuBarView.swift in Sources */,
+				1C57FCADAC6BE753D6E68D55 /* ModelDownloadManager.swift in Sources */,
 				5BFCC5A420A4E5F5A1589402 /* Models.swift in Sources */,
+				09E59ABB8B45FB53214A3A4E /* ServiceManager.swift in Sources */,
 				3B85078271C7C5BA7F3E00D9 /* StatusBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

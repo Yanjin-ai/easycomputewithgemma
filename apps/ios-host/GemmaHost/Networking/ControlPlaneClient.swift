@@ -333,16 +333,24 @@ final class ControlPlaneClient {
     }
 
     private func decode<Response: Decodable>(_ request: URLRequest) async throws -> Response {
-        let (data, response) = try await session.data(for: request)
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw ControlPlaneError.invalidResponse
+        do {
+            let (data, response) = try await session.data(for: request)
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw ControlPlaneError.invalidResponse
+            }
+            guard (200..<300).contains(httpResponse.statusCode) else {
+                let message = String(data: data, encoding: .utf8)
+                notifyDeviceAuthFailedIfNeeded(statusCode: httpResponse.statusCode)
+                throw ControlPlaneError.httpStatus(httpResponse.statusCode, message)
+            }
+            return try decoder.decode(Response.self, from: data)
+        } catch let error as URLError where [
+            .cannotConnectToHost,
+            .networkConnectionLost,
+            .timedOut
+        ].contains(error.code) {
+            throw ControlPlaneError.notReachable
         }
-        guard (200..<300).contains(httpResponse.statusCode) else {
-            let message = String(data: data, encoding: .utf8)
-            notifyDeviceAuthFailedIfNeeded(statusCode: httpResponse.statusCode)
-            throw ControlPlaneError.httpStatus(httpResponse.statusCode, message)
-        }
-        return try decoder.decode(Response.self, from: data)
     }
 
     private func notifyDeviceAuthFailedIfNeeded(statusCode: Int) {
@@ -356,15 +364,22 @@ enum ControlPlaneError: Error, LocalizedError {
     case invalidURL
     case invalidResponse
     case httpStatus(Int, String?)
+    case notReachable
 
     var errorDescription: String? {
         switch self {
         case .invalidURL:
-            return "The control plane URL is invalid."
+            return "Mac 地址设置有误，请在设置中检查控制平面 URL。"
         case .invalidResponse:
-            return "The control plane returned an invalid response."
-        case .httpStatus(let status, let message):
-            return "Control plane request failed with HTTP \(status): \(message ?? "no response body")."
+            return "Mac 返回了无法识别的数据，请确认 Gemma4all 运行时已启动。"
+        case .httpStatus(401, _), .httpStatus(403, _):
+            return "认证失败，请尝试在设置中重置设备注册。"
+        case .httpStatus(let code, _) where code >= 500:
+            return "Mac 运行时发生错误（\(code)），请查看 Mac 终端日志。"
+        case .httpStatus(let code, _):
+            return "请求失败（HTTP \(code)），请确认 Mac 上的 Gemma4all 服务正在运行。"
+        case .notReachable:
+            return "无法连接到 Mac。请确认：\n① Mac 上的 Gemma4all 正在运行\n② 两台设备在同一 WiFi\n③ Settings 里的 IP 地址正确"
         }
     }
 }

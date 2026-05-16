@@ -13,6 +13,35 @@ final class AppModel: ObservableObject {
     @Published var listError: String?
     @Published var isLoadingTasks = false
     @Published var modelManager: ModelManager
+    @Published private(set) var connectionState: ConnectionState = .unknown
+
+    enum ConnectionState {
+        case unknown, connected, disconnected
+
+        var icon: String {
+            switch self {
+            case .unknown: return "circle.dotted"
+            case .connected: return "circle.fill"
+            case .disconnected: return "circle.slash"
+            }
+        }
+
+        var color: Color {
+            switch self {
+            case .unknown: return .gray
+            case .connected: return .green
+            case .disconnected: return .red
+            }
+        }
+
+        var label: String {
+            switch self {
+            case .unknown: return "检查中"
+            case .connected: return "Mac 已连接"
+            case .disconnected: return "Mac 未连接"
+            }
+        }
+    }
 
     let client: ControlPlaneClient
     var parser: any ParserRouterService
@@ -80,6 +109,7 @@ final class AppModel: ObservableObject {
             let isValid = await client.verifyDevice(deviceId: deviceId)
             if isValid {
                 registrationError = nil
+                connectionState = .connected
                 heartbeatService.start(deviceId: deviceId)
                 await bootstrapParser()
                 await refreshTasks()
@@ -98,10 +128,12 @@ final class AppModel: ObservableObject {
             deviceId = response.device.deviceId
             apiKey = response.apiKey
             registrationError = nil
+            connectionState = .connected
             heartbeatService.start(deviceId: response.device.deviceId)
             await bootstrapParser()
             await refreshTasks()
         } catch {
+            connectionState = .disconnected
             registrationError = error.localizedDescription
         }
     }
@@ -159,8 +191,10 @@ final class AppModel: ObservableObject {
                 return mergedTask.withCompletionSummary(existingSummary)
             }
             listError = nil
+            connectionState = .connected
         } catch {
             listError = error.localizedDescription
+            connectionState = .disconnected
         }
     }
 

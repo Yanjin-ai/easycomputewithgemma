@@ -10,6 +10,7 @@ struct SettingsView: View {
     @State private var isTestingConnection = false
     @State private var resetStatus: String?
     @State private var isResettingRegistration = false
+    @StateObject private var discovery = BonjourDiscovery()
 
     init() {
         _baseURLString = State(
@@ -33,6 +34,15 @@ struct SettingsView: View {
                     Text("Same WiFi: use Mac's LAN IP. Anywhere: install Tailscale on both devices and use Tailscale IP.")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
+
+                    BonjourDiscoverySection(
+                        discovery: discovery,
+                        scanButtonTitle: "Rescan",
+                        selectedURLString: baseURLString
+                    ) { url in
+                        baseURLString = url.absoluteString
+                        save()
+                    }
 
                     if let validationError {
                         Text(validationError)

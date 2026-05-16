@@ -45,8 +45,16 @@ struct TaskListView: View {
         List {
             if let listError = model.listError {
                 Section {
-                    Text(listError)
-                        .foregroundStyle(.orange)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Label("连接问题", systemImage: "wifi.exclamationmark")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(.orange)
+                        Text(listError)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    .padding(12)
+                    .background(Color.orange.opacity(0.1), in: RoundedRectangle(cornerRadius: 8))
                 }
             }
 
@@ -88,6 +96,18 @@ struct TaskListView: View {
         }
         .navigationTitle(activeCount > 0 ? "Tasks (\(activeCount) active)" : "Tasks")
         .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                HStack(spacing: 5) {
+                    Image(systemName: model.connectionState.icon)
+                        .foregroundStyle(model.connectionState.color)
+                        .font(.caption)
+                        .imageScale(.small)
+                    Text(model.connectionState.label)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+
             ToolbarItemGroup(placement: .topBarTrailing) {
                 if hasHistoricalTasks {
                     Button("Clear History") {

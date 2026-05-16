@@ -11,6 +11,7 @@
 		1CD270D9AD61FE3A76A49D00 /* PermissionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272D271A741A6BD3BB6AEF28 /* PermissionPicker.swift */; };
 		1DADC96AF40C596F51418556 /* TaskDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD4422A6D547326A48219D6 /* TaskDraft.swift */; };
 		1F4BEE640E8682DFDAD426D7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD31AB0A0BB82511B61C43 /* NotificationService.swift */; };
+		261F9D6796CF2A2EAB3A359C /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B6651276E4A78155C505EC /* NotificationDelegate.swift */; };
 		2A4D1C00A9B1F340D47CE813 /* TaskInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2427C812A65B1F9EEF7EF /* TaskInputView.swift */; };
 		3136E5A7B5ED67EED342EB3F /* OnDeviceParserRouterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677C97AFAD96EE6759964499 /* OnDeviceParserRouterService.swift */; };
 		3569B28F358A3FDB8C18BA8C /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3148CC7AA24407DA5FD00A88 /* ModelManager.swift */; };
@@ -24,21 +25,28 @@
 		5FD16FE735FCAA527926531F /* HeartbeatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886A0C57598AF40435A88E00 /* HeartbeatService.swift */; };
 		64893075C962E3E6079C9AFE /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D1A348E4DA1C07177CD761 /* AppModel.swift */; };
 		7017AFB8BAD4808EE45A7836 /* ParserRouterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BCA2E22F356AA5C0D297AA /* ParserRouterService.swift */; };
+		779AB769DFCA6FDC4D4A6171 /* IntentControlPlaneClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111F35BDF2845FAC04D91C9A /* IntentControlPlaneClient.swift */; };
 		80545113DB43023918101A82 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC8B7C45D260B139477328 /* AppConfig.swift */; };
+		882A595B19EB9FB040EE9908 /* BonjourDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294AB27FD5BFFCBE003788CA /* BonjourDiscovery.swift */; };
+		9F47A435E0651E4005EA66B1 /* GemmaShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70402C62A89F84A55A286B /* GemmaShortcutsProvider.swift */; };
 		ADC5FE46C26C9754046AF05E /* JSONValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EAEBF0BFD5AF3DB34F9D3 /* JSONValue.swift */; };
 		B184B8235F27F9E199882EDE /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE878C3F3FEF56BE05D49163 /* TaskDetailView.swift */; };
 		B39B561A2AE6966C62D82DC2 /* ControlPlaneClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61644876C6136AB70D1757BA /* ControlPlaneClient.swift */; };
 		BD28FFD531CB0D88DB50C9FD /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11488E6A97813C866ABD789F /* Event.swift */; };
+		CD50D5EE42D0B4BB87DECEE5 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0DE03AA5B629867B9BCB9A /* AppIntents.framework */; };
 		CDE4F182ABD3709B21D9BF06 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD12E32EA7CFF4D8AF67E6 /* Device.swift */; };
+		E180762848302E515391FB05 /* GemmaSubmitTaskIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3DC669B28B58B1B800FF10 /* GemmaSubmitTaskIntent.swift */; };
 		EC39F5455786BA17C54870B0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EDB8FA6393DF30A2947477 /* ContentView.swift */; };
 		F15ACE20DA9EC59EE1129C7D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6839E82CBA65ACD525B20EA7 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		03BCA2E22F356AA5C0D297AA /* ParserRouterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserRouterService.swift; sourceTree = "<group>"; };
+		111F35BDF2845FAC04D91C9A /* IntentControlPlaneClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentControlPlaneClient.swift; sourceTree = "<group>"; };
 		11488E6A97813C866ABD789F /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		1F68430AFAE985B778A12493 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		272D271A741A6BD3BB6AEF28 /* PermissionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionPicker.swift; sourceTree = "<group>"; };
+		294AB27FD5BFFCBE003788CA /* BonjourDiscovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourDiscovery.swift; sourceTree = "<group>"; };
 		2CFD12E32EA7CFF4D8AF67E6 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		3148CC7AA24407DA5FD00A88 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		3E01690BEE67781ECED37D44 /* GemmaHost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GemmaHost.entitlements; sourceTree = "<group>"; };
@@ -51,19 +59,34 @@
 		886A0C57598AF40435A88E00 /* HeartbeatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartbeatService.swift; sourceTree = "<group>"; };
 		89D2427C812A65B1F9EEF7EF /* TaskInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInputView.swift; sourceTree = "<group>"; };
 		B22EAEBF0BFD5AF3DB34F9D3 /* JSONValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONValue.swift; sourceTree = "<group>"; };
+		BC70402C62A89F84A55A286B /* GemmaShortcutsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemmaShortcutsProvider.swift; sourceTree = "<group>"; };
 		BE5EE1A65656276A550EF4B2 /* GemmaHostApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemmaHostApp.swift; sourceTree = "<group>"; };
 		BEB60ABBFB4721AD09C78827 /* JSONValue+Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONValue+Display.swift"; sourceTree = "<group>"; };
+		C5B6651276E4A78155C505EC /* NotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
 		CE878C3F3FEF56BE05D49163 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
 		D404138CC397BC890410F6CF /* GemmaHost.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = GemmaHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D496D451D6F1324B969FA086 /* TaskStateDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStateDisplay.swift; sourceTree = "<group>"; };
 		DB3A78FF4B15918E7ED09437 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		DD3DC669B28B58B1B800FF10 /* GemmaSubmitTaskIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemmaSubmitTaskIntent.swift; sourceTree = "<group>"; };
 		DE4598D72A286AAE4EB29EC8 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		E8248EB722691E955467BB1D /* SpeechInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechInputController.swift; sourceTree = "<group>"; };
+		EC0DE03AA5B629867B9BCB9A /* AppIntents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppIntents.framework; path = System/Library/Frameworks/AppIntents.framework; sourceTree = SDKROOT; };
 		F7D1A348E4DA1C07177CD761 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		FADD31AB0A0BB82511B61C43 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		FB84BE300AC7F8957B0C47C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FFD4422A6D547326A48219D6 /* TaskDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDraft.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4D5026026BF7D4AFBFD128F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD50D5EE42D0B4BB87DECEE5 /* AppIntents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		4A51419D80427925FB19C78E /* Models */ = {
@@ -83,8 +106,17 @@
 			isa = PBXGroup;
 			children = (
 				A734AC850267AD23E0ADE126 /* GemmaHost */,
+				8352155FFFFE3667B8C686B2 /* Frameworks */,
 				AA9349B3AC7D46B931A2A9D6 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		8352155FFFFE3667B8C686B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC0DE03AA5B629867B9BCB9A /* AppIntents.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		837A4C7947E9A70EB5F6EAC7 /* Networking */ = {
@@ -111,10 +143,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		942E8F0964ADF3C198B3C837 /* AppIntents */ = {
+			isa = PBXGroup;
+			children = (
+				BC70402C62A89F84A55A286B /* GemmaShortcutsProvider.swift */,
+				DD3DC669B28B58B1B800FF10 /* GemmaSubmitTaskIntent.swift */,
+				111F35BDF2845FAC04D91C9A /* IntentControlPlaneClient.swift */,
+			);
+			path = AppIntents;
+			sourceTree = "<group>";
+		};
 		A734AC850267AD23E0ADE126 /* GemmaHost */ = {
 			isa = PBXGroup;
 			children = (
 				F15FEEED347B413B25CC90A3 /* App */,
+				942E8F0964ADF3C198B3C837 /* AppIntents */,
+				294AB27FD5BFFCBE003788CA /* BonjourDiscovery.swift */,
 				3E01690BEE67781ECED37D44 /* GemmaHost.entitlements */,
 				FB84BE300AC7F8957B0C47C7 /* Info.plist */,
 				4A51419D80427925FB19C78E /* Models */,
@@ -151,6 +195,7 @@
 				F7D1A348E4DA1C07177CD761 /* AppModel.swift */,
 				73EDB8FA6393DF30A2947477 /* ContentView.swift */,
 				BE5EE1A65656276A550EF4B2 /* GemmaHostApp.swift */,
+				C5B6651276E4A78155C505EC /* NotificationDelegate.swift */,
 				FADD31AB0A0BB82511B61C43 /* NotificationService.swift */,
 			);
 			path = App;
@@ -164,6 +209,7 @@
 			buildConfigurationList = B976712EB677F8B03DBB8BE7 /* Build configuration list for PBXNativeTarget "GemmaHost" */;
 			buildPhases = (
 				1477BE52507C1E8296F451CA /* Sources */,
+				4D5026026BF7D4AFBFD128F3 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -216,16 +262,21 @@
 			files = (
 				80545113DB43023918101A82 /* AppConfig.swift in Sources */,
 				64893075C962E3E6079C9AFE /* AppModel.swift in Sources */,
+				882A595B19EB9FB040EE9908 /* BonjourDiscovery.swift in Sources */,
 				EC39F5455786BA17C54870B0 /* ContentView.swift in Sources */,
 				B39B561A2AE6966C62D82DC2 /* ControlPlaneClient.swift in Sources */,
 				CDE4F182ABD3709B21D9BF06 /* Device.swift in Sources */,
 				BD28FFD531CB0D88DB50C9FD /* Event.swift in Sources */,
 				1A88425BE7BF93651A44746B /* GemmaHostApp.swift in Sources */,
+				9F47A435E0651E4005EA66B1 /* GemmaShortcutsProvider.swift in Sources */,
+				E180762848302E515391FB05 /* GemmaSubmitTaskIntent.swift in Sources */,
 				5FD16FE735FCAA527926531F /* HeartbeatService.swift in Sources */,
+				779AB769DFCA6FDC4D4A6171 /* IntentControlPlaneClient.swift in Sources */,
 				4C6FB094C6BA72C852B7A58B /* JSONValue+Display.swift in Sources */,
 				ADC5FE46C26C9754046AF05E /* JSONValue.swift in Sources */,
 				3A0151FF06631C830D7E0B01 /* KeychainHelper.swift in Sources */,
 				3569B28F358A3FDB8C18BA8C /* ModelManager.swift in Sources */,
+				261F9D6796CF2A2EAB3A359C /* NotificationDelegate.swift in Sources */,
 				1F4BEE640E8682DFDAD426D7 /* NotificationService.swift in Sources */,
 				3136E5A7B5ED67EED342EB3F /* OnDeviceParserRouterService.swift in Sources */,
 				59B228B224883D9E282E7F3B /* OnboardingView.swift in Sources */,

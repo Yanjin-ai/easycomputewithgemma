@@ -10,6 +10,8 @@ addFormats(ajv);
 
 function findSchemasDir(): string {
   const candidates = [
+    // When running as a pkg binary: schemas/ directory lives next to the executable
+    path.join(path.dirname(process.execPath), "schemas"),
     path.resolve(process.cwd(), "packages/schemas"),
     path.resolve(process.cwd(), "../../packages/schemas"),
     path.resolve(__dirname, "../../../../packages/schemas"),
