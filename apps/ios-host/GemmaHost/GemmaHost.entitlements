@@ -4,5 +4,9 @@
 <dict>
 	<key>com.apple.developer.kernel.increased-memory-limit</key>
 	<true/>
+	<!-- aps-environment and time-sensitive require a paid Apple Developer account.
+	     Re-enable when Developer account is approved:
+	     <key>aps-environment</key><string>development</string>
+	     <key>com.apple.developer.usernotifications.time-sensitive</key><true/> -->
 </dict>
 </plist>
