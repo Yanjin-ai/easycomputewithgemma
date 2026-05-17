@@ -31,7 +31,7 @@ struct GemmaHostApp: App {
                     }
                     .task {
                         if !appShortcutsParametersUpdated {
-                            await GemmaShortcutsProvider.updateAppShortcutParameters()
+                            GemmaShortcutsProvider.updateAppShortcutParameters()
                             appShortcutsParametersUpdated = true
                         }
                         guard onboardingComplete else { return }
