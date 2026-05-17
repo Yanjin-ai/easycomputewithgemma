@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#07091a"/>
+      <stop offset="100%" style="stop-color:#0c1128"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4285f4"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="ios" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1e3d"/>
+      <stop offset="100%" style="stop-color:#081428"/>
+    </linearGradient>
+    <linearGradient id="android" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a2010"/>
+      <stop offset="100%" style="stop-color:#061508"/>
+    </linearGradient>
+    <linearGradient id="macos" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0f2e"/>
+      <stop offset="100%" style="stop-color:#100820"/>
+    </linearGradient>
+    <linearGradient id="terminal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1000"/>
+      <stop offset="100%" style="stop-color:#120c00"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1280" height="5" fill="url(#line)"/>
+
+  <!-- Grid -->
+  <g opacity="0.035" stroke="#6366f1" stroke-width="0.5">
+    <line x1="0" y1="180" x2="1280" y2="180"/>
+    <line x1="0" y1="360" x2="1280" y2="360"/>
+    <line x1="0" y1="540" x2="1280" y2="540"/>
+    <line x1="320" y1="0" x2="320" y2="720"/>
+    <line x1="640" y1="0" x2="640" y2="720"/>
+    <line x1="960" y1="0" x2="960" y2="720"/>
+  </g>
+
+  <!-- Ambient glow -->
+  <circle cx="640" cy="400" r="300" fill="#8b5cf6" opacity="0.03"/>
+
+  <!-- Slide label + title -->
+  <text x="64" y="58" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" font-weight="600" fill="#334155" letter-spacing="3">CROSS-PLATFORM</text>
+  <text x="64" y="108" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="52" font-weight="800" fill="white" letter-spacing="-1">One Network. Four Clients.</text>
+  <text x="64" y="148" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="20" fill="#475569">Same control plane. Same event log. Every device stays in sync.</text>
+
+  <!-- ── CARD 1: iOS ── -->
+  <rect x="64" y="178" width="272" height="430" rx="16" fill="url(#ios)" stroke="#2563eb" stroke-width="2"/>
+  <!-- header -->
+  <rect x="64" y="178" width="272" height="56" rx="16" fill="#0f1e3d"/>
+  <rect x="64" y="210" width="272" height="24" fill="#0f1e3d"/>
+  <text x="200" y="213" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="28" text-anchor="middle">📱</text>
+  <text x="200" y="247" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="17" font-weight="700" fill="#93c5fd" text-anchor="middle">iOS App</text>
+  <text x="200" y="268" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#3b82f6" text-anchor="middle">SwiftUI · Xcode</text>
+  <line x1="84" y1="282" x2="316" y2="282" stroke="#1e3a5f" stroke-width="1"/>
+  <!-- features -->
+  <g font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="13">
+    <circle cx="90" cy="305" r="3" fill="#60a5fa"/>
+    <text x="103" y="310" fill="#e2e8f0">Task submission + voice input</text>
+    <circle cx="90" cy="335" r="3" fill="#60a5fa"/>
+    <text x="103" y="340" fill="#e2e8f0">Bonjour auto-discovery</text>
+    <circle cx="90" cy="365" r="3" fill="#60a5fa"/>
+    <text x="103" y="370" fill="#e2e8f0">3-screen onboarding</text>
+    <circle cx="90" cy="395" r="3" fill="#60a5fa"/>
+    <text x="103" y="400" fill="#e2e8f0">Event timeline view</text>
+    <circle cx="90" cy="425" r="3" fill="#60a5fa"/>
+    <text x="103" y="430" fill="#e2e8f0">Siri Shortcuts (App Intents)</text>
+    <circle cx="90" cy="455" r="3" fill="#60a5fa"/>
+    <text x="103" y="460" fill="#e2e8f0">Permission level picker</text>
+    <circle cx="90" cy="485" r="3" fill="#60a5fa"/>
+    <text x="103" y="490" fill="#e2e8f0">Dark mode · Accessible</text>
+  </g>
+  <rect x="84" y="538" width="232" height="52" rx="10" fill="#0a1628" stroke="#1d4ed8" stroke-width="1"/>
+  <text x="200" y="560" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#60a5fa" text-anchor="middle">TestFlight · Archive script ready</text>
+  <text x="200" y="578" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="11" fill="#334155" text-anchor="middle">archive_ios.sh</text>
+
+  <!-- ── CARD 2: Android ── -->
+  <rect x="356" y="178" width="272" height="430" rx="16" fill="url(#android)" stroke="#16a34a" stroke-width="2"/>
+  <rect x="356" y="178" width="272" height="56" rx="16" fill="#0a2010"/>
+  <rect x="356" y="210" width="272" height="24" fill="#0a2010"/>
+  <text x="492" y="213" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="28" text-anchor="middle">🤖</text>
+  <text x="492" y="247" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="17" font-weight="700" fill="#86efac" text-anchor="middle">Android App</text>
+  <text x="492" y="268" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#22c55e" text-anchor="middle">Kotlin · Jetpack Compose</text>
+  <line x1="376" y1="282" x2="608" y2="282" stroke="#14532d" stroke-width="1"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="13">
+    <circle cx="382" cy="305" r="3" fill="#4ade80"/>
+    <text x="395" y="310" fill="#e2e8f0">Task submission + voice input</text>
+    <circle cx="382" cy="335" r="3" fill="#4ade80"/>
+    <text x="395" y="340" fill="#e2e8f0">State chips (pending/running…)</text>
+    <circle cx="382" cy="365" r="3" fill="#4ade80"/>
+    <text x="395" y="370" fill="#e2e8f0">Approval screen (grant/reject)</text>
+    <circle cx="382" cy="395" r="3" fill="#4ade80"/>
+    <text x="395" y="400" fill="#e2e8f0">Event timeline view</text>
+    <circle cx="382" cy="425" r="3" fill="#4ade80"/>
+    <text x="395" y="430" fill="#e2e8f0">Device settings screen</text>
+    <circle cx="382" cy="455" r="3" fill="#4ade80"/>
+    <text x="395" y="460" fill="#e2e8f0">Hilt DI · Retrofit HTTP</text>
+    <circle cx="382" cy="485" r="3" fill="#4ade80"/>
+    <text x="395" y="490" fill="#e2e8f0">Heartbeat service</text>
+  </g>
+  <rect x="376" y="538" width="232" height="52" rx="10" fill="#061a0a" stroke="#166534" stroke-width="1"/>
+  <text x="492" y="560" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#4ade80" text-anchor="middle">Builds via Android Studio</text>
+  <text x="492" y="578" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="11" fill="#334155" text-anchor="middle">APK distribution in progress</text>
+
+  <!-- ── CARD 3: macOS Menu Bar ── -->
+  <rect x="648" y="178" width="272" height="430" rx="16" fill="url(#macos)" stroke="#7c3aed" stroke-width="2"/>
+  <rect x="648" y="178" width="272" height="56" rx="16" fill="#1a0f2e"/>
+  <rect x="648" y="210" width="272" height="24" fill="#1a0f2e"/>
+  <text x="784" y="213" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="28" text-anchor="middle">🖥</text>
+  <text x="784" y="247" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="17" font-weight="700" fill="#c4b5fd" text-anchor="middle">macOS Menu Bar</text>
+  <text x="784" y="268" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#8b5cf6" text-anchor="middle">Swift · SwiftUI</text>
+  <line x1="668" y1="282" x2="900" y2="282" stroke="#4c1d95" stroke-width="1"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="13">
+    <circle cx="674" cy="305" r="3" fill="#a78bfa"/>
+    <text x="687" y="310" fill="#e2e8f0">Service health monitor</text>
+    <circle cx="674" cy="335" r="3" fill="#a78bfa"/>
+    <text x="687" y="340" fill="#e2e8f0">Model download UI (E2B/E4B)</text>
+    <circle cx="674" cy="365" r="3" fill="#a78bfa"/>
+    <text x="687" y="370" fill="#e2e8f0">Download progress tracking</text>
+    <circle cx="674" cy="395" r="3" fill="#a78bfa"/>
+    <text x="687" y="400" fill="#e2e8f0">Recent tasks (top 10)</text>
+    <circle cx="674" cy="425" r="3" fill="#a78bfa"/>
+    <text x="687" y="430" fill="#e2e8f0">Task detail popovers</text>
+    <circle cx="674" cy="455" r="3" fill="#a78bfa"/>
+    <text x="687" y="460" fill="#e2e8f0">Bonjour advertisement</text>
+    <circle cx="674" cy="485" r="3" fill="#a78bfa"/>
+    <text x="687" y="490" fill="#e2e8f0">Keychain API key storage</text>
+  </g>
+  <rect x="668" y="538" width="232" height="52" rx="10" fill="#100820" stroke="#5b21b6" stroke-width="1"/>
+  <text x="784" y="560" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#c4b5fd" text-anchor="middle">DMG installer script ready</text>
+  <text x="784" y="578" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="11" fill="#334155" text-anchor="middle">create_dmg.sh · release_macos.sh</text>
+
+  <!-- ── CARD 4: Terminal / Backend ── -->
+  <rect x="940" y="178" width="272" height="430" rx="16" fill="url(#terminal)" stroke="#d97706" stroke-width="2"/>
+  <rect x="940" y="178" width="272" height="56" rx="16" fill="#1a1000"/>
+  <rect x="940" y="210" width="272" height="24" fill="#1a1000"/>
+  <text x="1076" y="213" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="28" text-anchor="middle">⌨️</text>
+  <text x="1076" y="247" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="17" font-weight="700" fill="#fcd34d" text-anchor="middle">Terminal / Backend</text>
+  <text x="1076" y="268" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#d97706" text-anchor="middle">bash · Node.js · Python</text>
+  <line x1="960" y1="282" x2="1192" y2="282" stroke="#431407" stroke-width="1"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="13">
+    <circle cx="966" cy="305" r="3" fill="#fbbf24"/>
+    <text x="979" y="310" fill="#e2e8f0">install.sh  one-line setup</text>
+    <circle cx="966" cy="335" r="3" fill="#fbbf24"/>
+    <text x="979" y="340" fill="#e2e8f0">start_all.sh  launch services</text>
+    <circle cx="966" cy="365" r="3" fill="#fbbf24"/>
+    <text x="979" y="370" fill="#e2e8f0">test_all.sh  13 E2E tests</text>
+    <circle cx="966" cy="395" r="3" fill="#fbbf24"/>
+    <text x="979" y="400" fill="#e2e8f0">eval_e2e.sh  scored eval</text>
+    <circle cx="966" cy="425" r="3" fill="#fbbf24"/>
+    <text x="979" y="430" fill="#e2e8f0">validate_install.sh</text>
+    <circle cx="966" cy="455" r="3" fill="#fbbf24"/>
+    <text x="979" y="460" fill="#e2e8f0">Launchd autostart</text>
+    <circle cx="966" cy="485" r="3" fill="#fbbf24"/>
+    <text x="979" y="490" fill="#e2e8f0">Tailscale remote access</text>
+  </g>
+  <rect x="960" y="538" width="232" height="52" rx="10" fill="#120c00" stroke="#92400e" stroke-width="1"/>
+  <text x="1076" y="560" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#fbbf24" text-anchor="middle">19 scripts total</text>
+  <text x="1076" y="578" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="11" fill="#334155" text-anchor="middle">curl -fsSL ... | bash</text>
+
+  <!-- Center connector line -->
+  <line x1="64" y1="643" x2="1216" y2="643" stroke="#1e293b" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="640" y="660" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="14" font-weight="600" fill="#334155" text-anchor="middle">
+    All clients connect to the same Control Plane · Shared event log · Single source of truth
+  </text>
+
+  <!-- Footer -->
+  <text x="64" y="710" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#1e293b">05 / 05</text>
+  <text x="1216" y="710" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#1e293b" text-anchor="end">EasyCompute · Gemma 4 via LiteRT</text>
+  <rect x="0" y="715" width="1280" height="5" fill="url(#line)" opacity="0.4"/>
+</svg>

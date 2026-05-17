@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#07091a"/>
+      <stop offset="100%" style="stop-color:#0c1128"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4285f4"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="60%" style="stop-color:#e2e8f0"/>
+      <stop offset="100%" style="stop-color:#94a3b8"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="12" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+
+  <!-- Grid -->
+  <g opacity="0.04" stroke="#6366f1" stroke-width="0.5">
+    <line x1="0" y1="144" x2="1280" y2="144"/>
+    <line x1="0" y1="288" x2="1280" y2="288"/>
+    <line x1="0" y1="432" x2="1280" y2="432"/>
+    <line x1="0" y1="576" x2="1280" y2="576"/>
+    <line x1="256" y1="0" x2="256" y2="720"/>
+    <line x1="512" y1="0" x2="512" y2="720"/>
+    <line x1="768" y1="0" x2="768" y2="720"/>
+    <line x1="1024" y1="0" x2="1024" y2="720"/>
+  </g>
+
+  <!-- Accent blobs -->
+  <circle cx="200" cy="360" r="280" fill="#4285f4" opacity="0.04"/>
+  <circle cx="1100" cy="300" r="240" fill="#8b5cf6" opacity="0.05"/>
+  <circle cx="640" cy="600" r="180" fill="#06b6d4" opacity="0.04"/>
+
+  <!-- Top bar -->
+  <rect x="0" y="0" width="1280" height="5" fill="url(#line)"/>
+
+  <!-- Hackathon pill — top right -->
+  <rect x="980" y="22" width="278" height="36" rx="18" fill="#130e2b" stroke="#5b21b6" stroke-width="1.5"/>
+  <text x="1119" y="45" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="14" font-weight="600" fill="#c4b5fd" text-anchor="middle">Gemma 4 Good Hackathon</text>
+
+  <!-- Main title -->
+  <text x="640" y="270" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif"
+        font-size="104" font-weight="800" fill="#4285f4" opacity="0.1" text-anchor="middle"
+        letter-spacing="-3" filter="url(#glow)">EasyCompute</text>
+  <text x="640" y="270" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif"
+        font-size="104" font-weight="800" fill="url(#titleGrad)" text-anchor="middle"
+        letter-spacing="-3">EasyCompute</text>
+
+  <!-- Tagline -->
+  <text x="640" y="330" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="28" font-weight="300" fill="#64748b" text-anchor="middle" letter-spacing="1">
+    Personal AI · Your Hardware · Your Network
+  </text>
+
+  <!-- Divider -->
+  <rect x="540" y="358" width="200" height="2" rx="1" fill="url(#line)" opacity="0.6"/>
+
+  <!-- Three pillars -->
+  <!-- Pillar 1 -->
+  <rect x="120" y="400" width="300" height="120" rx="16" fill="#0d1425" stroke="#1e3a5f" stroke-width="1.5"/>
+  <circle cx="172" cy="435" r="14" fill="#4285f4" opacity="0.2"/>
+  <circle cx="172" cy="435" r="7" fill="#4285f4"/>
+  <text x="197" y="431" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="15" font-weight="700" fill="#60a5fa">Gemma 4 via LiteRT</text>
+  <text x="197" y="450" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#475569">litert_lm.Backend.GPU</text>
+  <text x="140" y="480" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#334155">Metal GPU · Apple Silicon M1–M4</text>
+  <text x="140" y="500" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#334155">E2B (2.6 GB) · E4B (3.7 GB)</text>
+
+  <!-- Pillar 2 -->
+  <rect x="490" y="400" width="300" height="120" rx="16" fill="#0d1a0d" stroke="#14532d" stroke-width="1.5"/>
+  <circle cx="542" cy="435" r="14" fill="#22c55e" opacity="0.2"/>
+  <circle cx="542" cy="435" r="7" fill="#22c55e"/>
+  <text x="567" y="431" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="15" font-weight="700" fill="#4ade80">100% Local</text>
+  <text x="567" y="450" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#166534">Zero outbound connections</text>
+  <text x="510" y="480" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#334155">No API keys · No subscriptions</text>
+  <text x="510" y="500" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#334155">No data collection</text>
+
+  <!-- Pillar 3 -->
+  <rect x="860" y="400" width="300" height="120" rx="16" fill="#160d2e" stroke="#4c1d95" stroke-width="1.5"/>
+  <circle cx="912" cy="435" r="14" fill="#8b5cf6" opacity="0.2"/>
+  <circle cx="912" cy="435" r="7" fill="#8b5cf6"/>
+  <text x="937" y="431" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="15" font-weight="700" fill="#c4b5fd">4 Platforms</text>
+  <text x="937" y="450" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#6d28d9">One control plane</text>
+  <text x="880" y="480" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#334155">iOS · Android · macOS · Terminal</text>
+  <text x="880" y="500" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#334155">42 JSON Schemas · Event-Sourced</text>
+
+  <!-- Bottom stat strip -->
+  <rect x="0" y="580" width="1280" height="80" fill="#060810" opacity="0.8"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="13" fill="#475569" text-anchor="middle">
+    <text x="200" y="610">INFERENCE</text>
+    <text x="200" y="630" font-size="22" font-weight="700" fill="#60a5fa">LiteRT-LM</text>
+    <line x1="360" y1="592" x2="360" y2="648" stroke="#1e293b" stroke-width="1"/>
+    <text x="480" y="610">SCHEMAS</text>
+    <text x="480" y="630" font-size="22" font-weight="700" fill="#a78bfa">42</text>
+    <line x1="620" y1="592" x2="620" y2="648" stroke="#1e293b" stroke-width="1"/>
+    <text x="740" y="610">TOOLS</text>
+    <text x="740" y="630" font-size="22" font-weight="700" fill="#34d399">7</text>
+    <line x1="880" y1="592" x2="880" y2="648" stroke="#1e293b" stroke-width="1"/>
+    <text x="1000" y="610">PROTOCOLS</text>
+    <text x="1000" y="630" font-size="22" font-weight="700" fill="#f97316">8 docs</text>
+    <line x1="1140" y1="592" x2="1140" y2="648" stroke="#1e293b" stroke-width="1"/>
+    <text x="1220" y="610">BACKEND</text>
+    <text x="1220" y="630" font-size="22" font-weight="700" fill="#e2e8f0">GPU</text>
+  </g>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="715" width="1280" height="5" fill="url(#line)" opacity="0.5"/>
+</svg>

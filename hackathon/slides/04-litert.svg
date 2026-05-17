@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#07091a"/>
+      <stop offset="100%" style="stop-color:#061610"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4285f4"/>
+      <stop offset="50%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="codeBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1f14"/>
+      <stop offset="100%" style="stop-color:#081509"/>
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1f16"/>
+      <stop offset="100%" style="stop-color:#061410"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1280" height="5" fill="url(#line)"/>
+
+  <!-- Ambient glow -->
+  <circle cx="900" cy="360" r="350" fill="#22c55e" opacity="0.03"/>
+  <circle cx="300" cy="300" r="250" fill="#4285f4" opacity="0.03"/>
+
+  <!-- Grid -->
+  <g opacity="0.03" stroke="#22c55e" stroke-width="0.5">
+    <line x1="0" y1="180" x2="1280" y2="180"/>
+    <line x1="0" y1="360" x2="1280" y2="360"/>
+    <line x1="0" y1="540" x2="1280" y2="540"/>
+    <line x1="320" y1="0" x2="320" y2="720"/>
+    <line x1="640" y1="0" x2="640" y2="720"/>
+    <line x1="960" y1="0" x2="960" y2="720"/>
+  </g>
+
+  <!-- Slide label -->
+  <text x="64" y="58" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" font-weight="600" fill="#334155" letter-spacing="3">LITERT DEEP DIVE</text>
+
+  <!-- Title -->
+  <text x="64" y="108" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="52" font-weight="800" fill="white" letter-spacing="-1">Powered by LiteRT-LM</text>
+  <text x="64" y="148" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="20" fill="#475569">The only inference path. Every task. Every tool call. On-device.</text>
+
+  <!-- CODE BLOCK (left) -->
+  <rect x="64" y="178" width="580" height="390" rx="14" fill="url(#codeBg)" stroke="#14532d" stroke-width="1.5"/>
+
+  <!-- Code block header bar -->
+  <rect x="64" y="178" width="580" height="40" rx="14" fill="#0a1a0e"/>
+  <rect x="64" y="198" width="580" height="20" fill="#0a1a0e"/>
+  <circle cx="94" cy="198" r="6" fill="#ef4444" opacity="0.7"/>
+  <circle cx="114" cy="198" r="6" fill="#f59e0b" opacity="0.7"/>
+  <circle cx="134" cy="198" r="6" fill="#22c55e" opacity="0.7"/>
+  <text x="340" y="203" font-family="'SF Mono',Menlo,monospace" font-size="12"
+        fill="#4b5563" text-anchor="middle">inference_adapter.py</text>
+
+  <!-- Code lines -->
+  <g font-family="'SF Mono',Menlo,'Courier New',monospace" font-size="14">
+    <text x="90" y="246" fill="#64748b">import</text>
+    <text x="144" y="246" fill="#e2e8f0"> litert_lm</text>
+
+    <text x="90" y="278" fill="#64748b"># Engine: loaded once, shared across all Runs</text>
+    <text x="90" y="308" fill="#86efac">engine</text>
+    <text x="160" y="308" fill="#e2e8f0"> = litert_lm.</text>
+    <text x="265" y="308" fill="#60a5fa">Engine</text>
+    <text x="311" y="308" fill="#e2e8f0">(</text>
+    <text x="90" y="330" fill="#e2e8f0">    model_path=</text>
+    <text x="198" y="330" fill="#fbbf24">"gemma-4-E2B-it.litertlm"</text>
+    <text x="90" y="352" fill="#e2e8f0">    backend=litert_lm.</text>
+    <text x="274" y="352" fill="#60a5fa">Backend</text>
+    <text x="328" y="352" fill="#e2e8f0">.</text>
+    <text x="337" y="352" fill="#34d399">GPU</text>
+    <text x="362" y="352" fill="#64748b">  # Metal</text>
+    <text x="90" y="374" fill="#e2e8f0">).__enter__()</text>
+
+    <text x="90" y="406" fill="#64748b"># Session: new per Run, isolated history</text>
+    <text x="90" y="436" fill="#86efac">session</text>
+    <text x="158" y="436" fill="#e2e8f0"> = engine.</text>
+    <text x="233" y="436" fill="#60a5fa">create_conversation</text>
+    <text x="430" y="436" fill="#e2e8f0">()</text>
+
+    <text x="90" y="468" fill="#86efac">response</text>
+    <text x="166" y="468" fill="#e2e8f0"> = session.</text>
+    <text x="242" y="468" fill="#60a5fa">send</text>
+    <text x="272" y="468" fill="#e2e8f0">(</text>
+    <text x="90" y="490" fill="#e2e8f0">    {</text>
+    <text x="112" y="490" fill="#fbbf24">"role"</text>
+    <text x="158" y="490" fill="#e2e8f0">:</text>
+    <text x="167" y="490" fill="#fbbf24">"user"</text>
+    <text x="211" y="490" fill="#e2e8f0">,</text>
+    <text x="220" y="490" fill="#fbbf24">"content"</text>
+    <text x="280" y="490" fill="#e2e8f0">: task_prompt})</text>
+
+    <text x="90" y="522" fill="#64748b"># → Gemma 4 reasons, calls tools, returns</text>
+    <text x="90" y="544" fill="#64748b">#   result via tool_response format</text>
+  </g>
+
+  <!-- RIGHT side: key design choices -->
+  <g>
+    <!-- Card 1: Engine lifecycle -->
+    <rect x="676" y="178" width="540" height="108" rx="12" fill="url(#cardBg)" stroke="#14532d" stroke-width="1.5"/>
+    <text x="706" y="210" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+          font-size="14" font-weight="700" fill="#4ade80">One Engine · Many Runs</text>
+    <text x="706" y="234" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+          font-size="13" fill="#64748b">28s cold start paid once at startup.</text>
+    <text x="706" y="254" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+          font-size="13" fill="#64748b">All subsequent tasks: 4–6s warm inference.</text>
+    <text x="706" y="274" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+          font-size="13" fill="#374151">Model weights stay resident in GPU memory.</text>
+
+    <!-- Card 2: Session isolation -->
+    <rect x="676" y="302" width="540" height="108" rx="12" fill="url(#cardBg)" stroke="#14532d" stroke-width="1.5"/>
+    <text x="706" y="334" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+          font-size="14" font-weight="700" fill="#4ade80">Isolated Conversation per Task</text>
+    <text x="706" y="358" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+          font-size="13" fill="#64748b">Each Run gets a fresh Conversation object.</text>
+    <text x="706" y="378" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+          font-size="13" fill="#64748b">No cross-task context leakage.</text>
+    <text x="706" y="398" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+          font-size="13" fill="#374151">Released on completion → stable memory.</text>
+
+    <!-- Card 3: Model format -->
+    <rect x="676" y="426" width="540" height="80" rx="12" fill="url(#cardBg)" stroke="#14532d" stroke-width="1.5"/>
+    <text x="706" y="456" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+          font-size="14" font-weight="700" fill="#4ade80">.litertlm Format · litert-community</text>
+    <text x="706" y="478" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+          font-size="13" fill="#64748b">Native quantized format. macOS menu bar app downloads</text>
+    <text x="706" y="496" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+          font-size="13" fill="#64748b">E2B (2.6 GB) or E4B (3.7 GB) with progress tracking.</text>
+
+    <!-- Card 4: Dual parser -->
+    <rect x="676" y="522" width="540" height="80" rx="12" fill="url(#cardBg)" stroke="#14532d" stroke-width="1.5"/>
+    <text x="706" y="552" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+          font-size="14" font-weight="700" fill="#4ade80">Dual Tool-Call Parser</text>
+    <text x="706" y="574" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+          font-size="13" fill="#64748b">Native</text>
+    <text x="752" y="574" font-family="'SF Mono',Menlo,monospace" font-size="12" fill="#86efac"> &lt;|tool_call&gt;</text>
+    <text x="862" y="574" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+          font-size="13" fill="#64748b"> tokens → JSON fallback.</text>
+    <text x="706" y="594" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+          font-size="13" fill="#64748b">Robust across model updates with no prompt changes.</text>
+  </g>
+
+  <!-- Bottom stat bar -->
+  <rect x="64" y="614" width="1152" height="64" rx="12" fill="#060e08" stroke="#14532d" stroke-width="1"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,sans-serif" text-anchor="middle">
+    <text x="208" y="638" font-size="12" fill="#475569">COLD START</text>
+    <text x="208" y="662" font-size="24" font-weight="700" fill="#4ade80">~28 s</text>
+    <line x1="360" y1="624" x2="360" y2="668" stroke="#1e293b" stroke-width="1"/>
+    <text x="480" y="638" font-size="12" fill="#475569">WARM (no tools)</text>
+    <text x="480" y="662" font-size="24" font-weight="700" fill="#34d399">4–6 s</text>
+    <line x1="610" y1="624" x2="610" y2="668" stroke="#1e293b" stroke-width="1"/>
+    <text x="730" y="638" font-size="12" fill="#475569">WARM (3-step)</text>
+    <text x="730" y="662" font-size="24" font-weight="700" fill="#86efac">12–18 s</text>
+    <line x1="860" y1="624" x2="860" y2="668" stroke="#1e293b" stroke-width="1"/>
+    <text x="980" y="638" font-size="12" fill="#475569">BACKEND</text>
+    <text x="980" y="662" font-size="24" font-weight="700" fill="#60a5fa">Metal GPU</text>
+    <line x1="1100" y1="624" x2="1100" y2="668" stroke="#1e293b" stroke-width="1"/>
+    <text x="1170" y="638" font-size="12" fill="#475569">HARDWARE</text>
+    <text x="1170" y="662" font-size="18" font-weight="700" fill="#e2e8f0">M1–M4</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="64" y="710" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#1e293b">04 / 05</text>
+  <text x="1216" y="710" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#1e293b" text-anchor="end">EasyCompute · Gemma 4 via LiteRT</text>
+  <rect x="0" y="715" width="1280" height="5" fill="url(#line)" opacity="0.4"/>
+</svg>

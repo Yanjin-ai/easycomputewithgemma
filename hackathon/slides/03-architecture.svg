@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#07091a"/>
+      <stop offset="100%" style="stop-color:#0c1128"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4285f4"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="n1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1d3557"/><stop offset="100%" style="stop-color:#0f1e33"/>
+    </linearGradient>
+    <linearGradient id="n2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2e1a6e"/><stop offset="100%" style="stop-color:#160c38"/>
+    </linearGradient>
+    <linearGradient id="n3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#064e3b"/><stop offset="100%" style="stop-color:#022c22"/>
+    </linearGradient>
+    <linearGradient id="n4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#431407"/><stop offset="100%" style="stop-color:#1c0804"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0,10 3.5,0 7" fill="#60a5fa"/>
+    </marker>
+    <marker id="arrG" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0,10 3.5,0 7" fill="#34d399"/>
+    </marker>
+    <marker id="arrRet" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
+      <polygon points="10 0,0 3.5,10 7" fill="#4ade80"/>
+    </marker>
+    <filter id="ng">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1280" height="5" fill="url(#line)"/>
+
+  <!-- Grid -->
+  <g opacity="0.035" stroke="#6366f1" stroke-width="0.5">
+    <line x1="0" y1="180" x2="1280" y2="180"/>
+    <line x1="0" y1="360" x2="1280" y2="360"/>
+    <line x1="0" y1="540" x2="1280" y2="540"/>
+    <line x1="320" y1="0" x2="320" y2="720"/>
+    <line x1="640" y1="0" x2="640" y2="720"/>
+    <line x1="960" y1="0" x2="960" y2="720"/>
+  </g>
+
+  <!-- Slide label + title -->
+  <text x="64" y="58" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" font-weight="600" fill="#334155" letter-spacing="3">ARCHITECTURE</text>
+  <text x="64" y="108" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="52" font-weight="800" fill="white" letter-spacing="-1">How It Works</text>
+  <text x="64" y="145" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="20" fill="#475569">Four layers · One event log · Zero cloud</text>
+
+  <!-- ═══ FLOW NODES ═══ -->
+  <!-- Spacing: nodes at cx = 160, 430, 720, 1010 ; width=220 -->
+
+  <!-- ARROW 1 -->
+  <line x1="272" y1="380" x2="318" y2="380" stroke="#60a5fa" stroke-width="3" marker-end="url(#arr)"/>
+  <!-- ARROW 2 -->
+  <line x1="542" y1="380" x2="608" y2="380" stroke="#a78bfa" stroke-width="3" marker-end="url(#arr)"/>
+  <!-- ARROW 3 -->
+  <line x1="832" y1="380" x2="898" y2="380" stroke="#34d399" stroke-width="3" marker-end="url(#arrG)"/>
+  <!-- RETURN ARC -->
+  <path d="M 1010 500 Q 640 570 160 500" stroke="#4ade80" stroke-width="2"
+        stroke-dasharray="8,5" fill="none" opacity="0.5" marker-start="url(#arrRet)"/>
+  <text x="590" y="560" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#4ade80" text-anchor="middle" opacity="0.7">result returns · event log updated</text>
+
+  <!-- NODE 1: Phone -->
+  <rect x="50" y="300" width="220" height="160" rx="14" fill="url(#n1)" stroke="#3b82f6" stroke-width="2"/>
+  <text x="160" y="334" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="16" font-weight="700" fill="#93c5fd" text-anchor="middle">📱  Phone</text>
+  <line x1="70" y1="344" x2="250" y2="344" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="160" y="366" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#64748b" text-anchor="middle">iOS · Android</text>
+  <text x="160" y="384" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#64748b" text-anchor="middle">SwiftUI · Jetpack Compose</text>
+  <text x="160" y="404" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#4ade80" text-anchor="middle">POST /v1/tasks</text>
+  <text x="160" y="424" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">Bonjour discovery</text>
+  <text x="160" y="444" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">Voice · Siri Shortcuts</text>
+
+  <!-- NODE 2: Control Plane -->
+  <rect x="320" y="280" width="220" height="200" rx="14" fill="url(#n2)" stroke="#7c3aed" stroke-width="2"/>
+  <text x="430" y="314" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="16" font-weight="700" fill="#c4b5fd" text-anchor="middle">⚙️  Control Plane</text>
+  <line x1="340" y1="324" x2="520" y2="324" stroke="#2e1a6e" stroke-width="1"/>
+  <text x="430" y="346" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#64748b" text-anchor="middle">Node.js · TypeScript</text>
+  <text x="430" y="366" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#7c3aed" text-anchor="middle">42 JSON Schemas</text>
+  <text x="430" y="386" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">Event-Sourced State</text>
+  <text x="430" y="406" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">RoutingEngine</text>
+  <text x="430" y="426" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">ApprovalService</text>
+  <text x="430" y="446" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">HandoffService · SQLite</text>
+  <text x="430" y="466" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#4ade80" text-anchor="middle">SSE · 10 endpoints</text>
+
+  <!-- NODE 3: LiteRT (highlighted) -->
+  <rect x="608" y="264" width="226" height="232" rx="14" fill="url(#n3)" stroke="#16a34a" stroke-width="2.5" filter="url(#ng)"/>
+  <rect x="608" y="264" width="226" height="232" rx="14" fill="none" stroke="#22c55e" stroke-width="0.8" opacity="0.4"/>
+  <text x="721" y="298" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="16" font-weight="700" fill="#4ade80" text-anchor="middle">🧠  LiteRT-LM Engine</text>
+  <line x1="628" y1="308" x2="814" y2="308" stroke="#065f46" stroke-width="1"/>
+  <text x="721" y="330" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" font-weight="600" fill="#86efac" text-anchor="middle">litert_lm.Backend.GPU</text>
+  <text x="721" y="352" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#64748b" text-anchor="middle">Gemma 4 E2B · E4B</text>
+  <text x="721" y="372" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#64748b" text-anchor="middle">.litertlm · Metal GPU</text>
+  <text x="721" y="392" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">1 engine · N sessions</text>
+  <text x="721" y="412" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">Checkpoint recovery</text>
+  <text x="721" y="432" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">Thinking token strip</text>
+  <text x="721" y="452" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#4ade80" text-anchor="middle">28s cold · 4–6s warm</text>
+  <text x="721" y="484" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="11" fill="#374151" text-anchor="middle">Apple Silicon M1–M4</text>
+
+  <!-- NODE 4: Tools -->
+  <rect x="900" y="300" width="220" height="160" rx="14" fill="url(#n4)" stroke="#ea580c" stroke-width="2"/>
+  <text x="1010" y="334" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="16" font-weight="700" fill="#fb923c" text-anchor="middle">🛠  Tool Registry</text>
+  <line x1="920" y1="344" x2="1100" y2="344" stroke="#431407" stroke-width="1"/>
+  <text x="1010" y="366" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#64748b" text-anchor="middle">file · shell · web</text>
+  <text x="1010" y="386" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#64748b" text-anchor="middle">AppleScript · screenshot</text>
+  <text x="1010" y="406" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">Calendar · Mail · Finder</text>
+  <text x="1010" y="426" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">DuckDuckGo search</text>
+  <text x="1010" y="446" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#fb923c" text-anchor="middle">7 tools · async Python</text>
+
+  <!-- Callout boxes at bottom -->
+  <rect x="64" y="610" width="250" height="70" rx="10" fill="#0d1020" stroke="#1e293b" stroke-width="1"/>
+  <text x="189" y="636" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" font-weight="700" fill="#60a5fa" text-anchor="middle">EVENT SOURCING</text>
+  <text x="189" y="656" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">All state = append-only log</text>
+  <text x="189" y="672" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">Fully auditable · replayable</text>
+
+  <rect x="340" y="610" width="250" height="70" rx="10" fill="#0d1020" stroke="#1e293b" stroke-width="1"/>
+  <text x="465" y="636" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" font-weight="700" fill="#a78bfa" text-anchor="middle">SCHEMA-FIRST</text>
+  <text x="465" y="656" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">42 schemas before code</text>
+  <text x="465" y="672" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">Zero hand-written types</text>
+
+  <rect x="616" y="610" width="250" height="70" rx="10" fill="#0d1020" stroke="#1e293b" stroke-width="1"/>
+  <text x="741" y="636" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" font-weight="700" fill="#34d399" text-anchor="middle">LOCAL-FIRST</text>
+  <text x="741" y="656" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">private_lan by default</text>
+  <text x="741" y="672" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">Cloud = explicit opt-in only</text>
+
+  <rect x="892" y="610" width="250" height="70" rx="10" fill="#0d1020" stroke="#1e293b" stroke-width="1"/>
+  <text x="1017" y="636" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" font-weight="700" fill="#fb923c" text-anchor="middle">APPROVAL GATES</text>
+  <text x="1017" y="656" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">Sensitive actions require</text>
+  <text x="1017" y="672" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">explicit user consent</text>
+
+  <!-- Footer -->
+  <text x="64" y="710" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#1e293b">03 / 05</text>
+  <text x="1216" y="710" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#1e293b" text-anchor="end">EasyCompute · Gemma 4 via LiteRT</text>
+  <rect x="0" y="715" width="1280" height="5" fill="url(#line)" opacity="0.4"/>
+</svg>
