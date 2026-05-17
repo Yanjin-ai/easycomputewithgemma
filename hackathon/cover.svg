@@ -9,165 +9,243 @@
       <stop offset="50%" style="stop-color:#7c3aed"/>
       <stop offset="100%" style="stop-color:#06b6d4"/>
     </linearGradient>
-    <linearGradient id="nodeGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e3a5f"/>
-      <stop offset="100%" style="stop-color:#1a2744"/>
+    <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#60a5fa"/>
+      <stop offset="100%" style="stop-color:#34d399"/>
     </linearGradient>
-    <linearGradient id="nodeGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2d1b4e"/>
-      <stop offset="100%" style="stop-color:#1e1235"/>
+    <linearGradient id="nodeGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1d3557"/>
+      <stop offset="100%" style="stop-color:#112240"/>
     </linearGradient>
-    <linearGradient id="nodeGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f3d2e"/>
-      <stop offset="100%" style="stop-color:#092a1f"/>
+    <linearGradient id="nodeGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2e1a6e"/>
+      <stop offset="100%" style="stop-color:#1a0f42"/>
     </linearGradient>
-    <linearGradient id="nodeGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3d1f0f"/>
-      <stop offset="100%" style="stop-color:#2a1409"/>
+    <linearGradient id="nodeGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#064e3b"/>
+      <stop offset="100%" style="stop-color:#022c22"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <linearGradient id="nodeGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#431407"/>
+      <stop offset="100%" style="stop-color:#27100a"/>
+    </linearGradient>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#60a5fa"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/>
+    </marker>
+    <marker id="arrowReturn" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#4ade80"/>
+    </marker>
+    <filter id="nodeGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <filter id="softGlow">
-      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="titleGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
 
   <!-- Background -->
   <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-  <!-- Subtle grid pattern -->
-  <g opacity="0.06" stroke="#4285f4" stroke-width="0.5">
+  <!-- Subtle grid -->
+  <g opacity="0.05" stroke="#4285f4" stroke-width="0.5">
     <line x1="0" y1="105" x2="1200" y2="105"/>
     <line x1="0" y1="210" x2="1200" y2="210"/>
     <line x1="0" y1="315" x2="1200" y2="315"/>
     <line x1="0" y1="420" x2="1200" y2="420"/>
     <line x1="0" y1="525" x2="1200" y2="525"/>
-    <line x1="200" y1="0" x2="200" y2="630"/>
-    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="150" y1="0" x2="150" y2="630"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="450" y1="0" x2="450" y2="630"/>
     <line x1="600" y1="0" x2="600" y2="630"/>
-    <line x1="800" y1="0" x2="800" y2="630"/>
-    <line x1="1000" y1="0" x2="1000" y2="630"/>
+    <line x1="750" y1="0" x2="750" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/>
+    <line x1="1050" y1="0" x2="1050" y2="630"/>
   </g>
 
   <!-- Top accent bar -->
   <rect x="0" y="0" width="1200" height="4" fill="url(#accentGrad)"/>
 
-  <!-- Left glow blob -->
-  <circle cx="150" cy="300" r="180" fill="#4285f4" opacity="0.05"/>
-  <circle cx="1050" cy="350" r="160" fill="#7c3aed" opacity="0.06"/>
+  <!-- Ambient glow blobs -->
+  <circle cx="200" cy="320" r="220" fill="#4285f4" opacity="0.04"/>
+  <circle cx="1000" cy="380" r="200" fill="#7c3aed" opacity="0.05"/>
+  <circle cx="600" cy="430" r="150" fill="#22c55e" opacity="0.04"/>
 
-  <!-- TITLE -->
-  <text x="100" y="138" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-        font-size="82" font-weight="800" fill="white" letter-spacing="-2" filter="url(#softGlow)" opacity="0.15">EasyCompute</text>
-  <text x="100" y="138" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-        font-size="82" font-weight="800" fill="white" letter-spacing="-2">EasyCompute</text>
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- HEADER SECTION -->
+  <!-- ═══════════════════════════════════════════ -->
 
-  <!-- Tagline -->
-  <text x="102" y="180" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-        font-size="26" font-weight="400" fill="#94a3b8" letter-spacing="0.5">Personal AI That Never Leaves Your Home</text>
+  <!-- Title shadow/glow layer -->
+  <text x="100" y="130" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif"
+        font-size="86" font-weight="800" fill="#4285f4" opacity="0.12" letter-spacing="-3">EasyCompute</text>
+  <!-- Title -->
+  <text x="100" y="130" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif"
+        font-size="86" font-weight="800" fill="white" letter-spacing="-3">EasyCompute</text>
 
-  <!-- Model badge row -->
-  <rect x="100" y="204" width="152" height="34" rx="17" fill="#1e2d4a" stroke="#3b5998" stroke-width="1"/>
-  <circle cx="120" cy="221" r="7" fill="#4285f4"/>
-  <text x="134" y="226" font-family="-apple-system, BlinkMacSystemFont, sans-serif"
-        font-size="15" font-weight="600" fill="#60a5fa">Gemma 4</text>
+  <!-- Subtitle -->
+  <text x="104" y="172" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="27" font-weight="300" fill="#94a3b8" letter-spacing="0.3">Personal AI That Never Leaves Your Home Network</text>
 
-  <text x="260" y="226" font-family="-apple-system, BlinkMacSystemFont, sans-serif"
-        font-size="15" fill="#64748b">via</text>
+  <!-- Badge row -->
+  <!-- Gemma 4 badge -->
+  <rect x="104" y="196" width="155" height="36" rx="18" fill="#132038" stroke="#2563eb" stroke-width="1.5"/>
+  <circle cx="124" cy="214" r="7" fill="#3b82f6"/>
+  <text x="138" y="219" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="15" font-weight="700" fill="#93c5fd">Gemma 4 E2B/E4B</text>
 
-  <rect x="285" y="204" width="130" height="34" rx="17" fill="#1a2a1a" stroke="#22543d" stroke-width="1"/>
-  <circle cx="305" cy="221" r="7" fill="#22c55e"/>
-  <text x="319" y="226" font-family="-apple-system, BlinkMacSystemFont, sans-serif"
-        font-size="15" font-weight="600" fill="#4ade80">LiteRT-LM</text>
+  <!-- via text -->
+  <text x="267" y="219" font-family="-apple-system,sans-serif" font-size="15" fill="#4b5563">via</text>
 
-  <text x="423" y="226" font-family="-apple-system, BlinkMacSystemFont, sans-serif"
-        font-size="15" fill="#64748b">·</text>
+  <!-- LiteRT badge -->
+  <rect x="295" y="196" width="135" height="36" rx="18" fill="#052e16" stroke="#16a34a" stroke-width="1.5"/>
+  <circle cx="315" cy="214" r="7" fill="#22c55e"/>
+  <text x="330" y="219" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="15" font-weight="700" fill="#86efac">LiteRT-LM</text>
 
-  <rect x="438" y="204" width="170" height="34" rx="17" fill="#2a1a1a" stroke="#7c3820" stroke-width="1"/>
-  <circle cx="458" cy="221" r="7" fill="#f97316"/>
-  <text x="472" y="226" font-family="-apple-system, BlinkMacSystemFont, sans-serif"
-        font-size="15" font-weight="600" fill="#fb923c">Apple Silicon GPU</text>
+  <!-- dot -->
+  <text x="438" y="219" font-family="-apple-system,sans-serif" font-size="15" fill="#374151">·</text>
 
+  <!-- Apple Silicon badge -->
+  <rect x="454" y="196" width="175" height="36" rx="18" fill="#1c0a00" stroke="#c2410c" stroke-width="1.5"/>
+  <circle cx="474" cy="214" r="7" fill="#f97316"/>
+  <text x="489" y="219" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="15" font-weight="700" fill="#fdba74">Apple Silicon GPU</text>
+
+  <!-- Hackathon tag (top right) -->
+  <rect x="934" y="14" width="250" height="34" rx="17" fill="#130e2b" stroke="#5b21b6" stroke-width="1.5"/>
+  <text x="1059" y="36" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="14" font-weight="600" fill="#c4b5fd" text-anchor="middle">Gemma 4 Good Hackathon</text>
+
+  <!-- ═══════════════════════════════════════════ -->
   <!-- ARCHITECTURE FLOW -->
-  <!-- Nodes: iPhone → Control Plane → LiteRT Engine → Tools -->
+  <!-- 4 nodes evenly spaced across full width    -->
+  <!-- Node positions:                            -->
+  <!--   N1: x=28,  w=198, cx=127                -->
+  <!--   N2: x=286, w=230, cx=401                -->
+  <!--   N3: x=576, w=230, cx=691  (highlighted) -->
+  <!--   N4: x=866, w=198, cx=965               -->
+  <!-- ═══════════════════════════════════════════ -->
 
-  <!-- Arrow connecting lines (drawn first, behind nodes) -->
-  <!-- Arrow 1: iPhone → Control Plane -->
-  <line x1="228" y1="400" x2="332" y2="400" stroke="url(#accentGrad)" stroke-width="2" opacity="0.7"/>
-  <polygon points="332,394 344,400 332,406" fill="#4285f4" opacity="0.8"/>
-  <!-- Arrow 2: Control Plane → LiteRT -->
-  <line x1="528" y1="400" x2="632" y2="400" stroke="url(#accentGrad)" stroke-width="2" opacity="0.7"/>
-  <polygon points="632,394 644,400 632,406" fill="#7c3aed" opacity="0.8"/>
-  <!-- Arrow 3: LiteRT → Tools -->
-  <line x1="828" y1="400" x2="932" y2="400" stroke="url(#accentGrad)" stroke-width="2" opacity="0.7"/>
-  <polygon points="932,394 944,400 932,406" fill="#06b6d4" opacity="0.8"/>
-  <!-- Result arrow back (bottom arc suggestion) -->
-  <path d="M 1044 450 Q 600 530 156 450" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="6,4" fill="none" opacity="0.4"/>
-  <polygon points="156,444 144,450 156,456" fill="#22c55e" opacity="0.4"/>
-  <text x="560" y="522" font-family="-apple-system, sans-serif" font-size="13" fill="#4ade80" opacity="0.6" text-anchor="middle">result returns to phone</text>
+  <!-- ── ARROW 1: iPhone → Control Plane ───────────────── -->
+  <line x1="228" y1="388" x2="280" y2="388"
+        stroke="#60a5fa" stroke-width="3" marker-end="url(#arrowBlue)"/>
 
-  <!-- Node 1: iPhone App -->
-  <rect x="94" y="352" width="134" height="96" rx="12" fill="url(#nodeGrad1)" stroke="#3b5998" stroke-width="1.5"/>
+  <!-- ── ARROW 2: Control Plane → LiteRT ───────────────── -->
+  <line x1="518" y1="388" x2="570" y2="388"
+        stroke="#a78bfa" stroke-width="3" marker-end="url(#arrowBlue)"/>
+
+  <!-- ── ARROW 3: LiteRT → Tools ────────────────────────── -->
+  <line x1="808" y1="388" x2="860" y2="388"
+        stroke="#34d399" stroke-width="3" marker-end="url(#arrowGreen)"/>
+
+  <!-- ── RETURN ARC: Tools → iPhone ─────────────────────── -->
+  <path d="M 960 488 Q 600 558 140 488"
+        stroke="#4ade80" stroke-width="2" stroke-dasharray="7,5" fill="none" opacity="0.6"
+        marker-start="url(#arrowReturn)"/>
+  <text x="594" y="550" font-family="-apple-system,sans-serif" font-size="14"
+        fill="#86efac" text-anchor="middle" opacity="0.75">result returns to phone</text>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- NODE 1: iPhone App -->
+  <!-- ══════════════════════════════════════════ -->
+  <rect x="28" y="318" width="198" height="130" rx="14"
+        fill="url(#nodeGrad1)" stroke="#3b82f6" stroke-width="2"/>
   <!-- iPhone icon -->
-  <rect x="130" y="363" width="22" height="36" rx="4" fill="none" stroke="#60a5fa" stroke-width="1.5"/>
-  <rect x="137" y="367" width="8" height="2" rx="1" fill="#60a5fa" opacity="0.6"/>
-  <rect x="133" y="391" width="16" height="2" rx="1" fill="#60a5fa" opacity="0.5"/>
-  <text x="161" y="382" font-family="-apple-system, sans-serif" font-size="11" font-weight="600" fill="#60a5fa" text-anchor="middle">iPhone</text>
-  <text x="161" y="398" font-family="-apple-system, sans-serif" font-size="11" font-weight="600" fill="#60a5fa" text-anchor="middle">App</text>
-  <text x="161" y="432" font-family="-apple-system, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Kotlin · Compose</text>
-  <text x="161" y="444" font-family="-apple-system, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Task Submission</text>
+  <rect x="106" y="330" width="28" height="44" rx="5"
+        fill="none" stroke="#60a5fa" stroke-width="2"/>
+  <rect x="115" y="334" width="10" height="3" rx="1.5" fill="#60a5fa" opacity="0.7"/>
+  <rect x="113" y="367" width="14" height="2" rx="1" fill="#60a5fa" opacity="0.5"/>
+  <!-- Label -->
+  <text x="127" y="388" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="16" font-weight="700" fill="#93c5fd" text-anchor="middle">iPhone App</text>
+  <text x="127" y="408" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#64748b" text-anchor="middle">Kotlin · Compose</text>
+  <text x="127" y="425" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#64748b" text-anchor="middle">Task Submission</text>
+  <text x="127" y="442" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#475569" text-anchor="middle">Bonjour Discovery</text>
 
-  <!-- Node 2: Control Plane -->
-  <rect x="344" y="352" width="174" height="96" rx="12" fill="url(#nodeGrad2)" stroke="#5b21b6" stroke-width="1.5"/>
-  <text x="431" y="383" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" fill="#a78bfa" text-anchor="middle">Control Plane</text>
-  <text x="431" y="399" font-family="-apple-system, sans-serif" font-size="10" fill="#7c6db0" text-anchor="middle">Node.js · TypeScript</text>
-  <text x="431" y="415" font-family="-apple-system, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">40 JSON Schemas</text>
-  <text x="431" y="429" font-family="-apple-system, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Event-Sourced State Machine</text>
-  <text x="431" y="443" font-family="-apple-system, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">RoutingEngine · SQLite</text>
+  <!-- ══════════════════════════════════════════ -->
+  <!-- NODE 2: Control Plane -->
+  <!-- ══════════════════════════════════════════ -->
+  <rect x="286" y="318" width="230" height="130" rx="14"
+        fill="url(#nodeGrad2)" stroke="#7c3aed" stroke-width="2"/>
+  <text x="401" y="348" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="17" font-weight="700" fill="#c4b5fd" text-anchor="middle">Control Plane</text>
+  <text x="401" y="368" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#8b7ec8" text-anchor="middle">Node.js · TypeScript</text>
+  <text x="401" y="388" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#6b7280" text-anchor="middle">40 JSON Schemas</text>
+  <text x="401" y="406" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#6b7280" text-anchor="middle">Event-Sourced State Machine</text>
+  <text x="401" y="424" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#6b7280" text-anchor="middle">RoutingEngine · SQLite</text>
+  <text x="401" y="442" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#4b5563" text-anchor="middle">Heartbeat · Handoff</text>
 
-  <!-- Node 3: LiteRT Engine (center of attention) -->
-  <rect x="644" y="338" width="174" height="124" rx="12" fill="url(#nodeGrad3)" stroke="#065f46" stroke-width="2" filter="url(#glow)"/>
-  <!-- Glow ring -->
-  <rect x="644" y="338" width="174" height="124" rx="12" fill="none" stroke="#22c55e" stroke-width="0.5" opacity="0.5"/>
-  <text x="731" y="368" font-family="-apple-system, sans-serif" font-size="11" font-weight="700" fill="#4ade80" text-anchor="middle">LiteRT-LM Engine</text>
-  <text x="731" y="385" font-family="-apple-system, sans-serif" font-size="10" fill="#22c55e" text-anchor="middle">litert_lm.Backend.GPU</text>
-  <text x="731" y="400" font-family="-apple-system, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">Gemma 4 E2B · E4B</text>
-  <text x="731" y="415" font-family="-apple-system, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">.litertlm format</text>
-  <text x="731" y="430" font-family="-apple-system, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">Metal GPU · Apple Silicon</text>
-  <text x="731" y="450" font-family="-apple-system, sans-serif" font-size="10" fill="#4ade80" text-anchor="middle" opacity="0.8">per-Run session isolation</text>
+  <!-- ══════════════════════════════════════════ -->
+  <!-- NODE 3: LiteRT-LM Engine (HIGHLIGHTED) -->
+  <!-- ══════════════════════════════════════════ -->
+  <!-- Outer glow ring -->
+  <rect x="572" y="302" width="240" height="162" rx="16"
+        fill="none" stroke="#22c55e" stroke-width="1" opacity="0.3"/>
+  <rect x="574" y="304" width="236" height="158" rx="15"
+        fill="url(#nodeGrad3)" stroke="#16a34a" stroke-width="2.5" filter="url(#nodeGlow)"/>
+  <text x="692" y="334" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="17" font-weight="700" fill="#4ade80" text-anchor="middle">LiteRT-LM Engine</text>
+  <!-- Separator line -->
+  <line x1="594" y1="342" x2="790" y2="342" stroke="#166534" stroke-width="1" opacity="0.6"/>
+  <text x="692" y="360" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="14" font-weight="600" fill="#86efac" text-anchor="middle">litert_lm.Backend.GPU</text>
+  <text x="692" y="378" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#6b7280" text-anchor="middle">Gemma 4 E2B · E4B</text>
+  <text x="692" y="395" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#6b7280" text-anchor="middle">.litertlm format</text>
+  <text x="692" y="412" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#6b7280" text-anchor="middle">Metal GPU · Apple Silicon</text>
+  <text x="692" y="430" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#4ade80" text-anchor="middle">per-Run session isolation</text>
+  <text x="692" y="454" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#374151" text-anchor="middle">28s cold · 4–6s warm</text>
 
-  <!-- Node 4: Tools -->
-  <rect x="944" y="352" width="162" height="96" rx="12" fill="url(#nodeGrad4)" stroke="#7c3820" stroke-width="1.5"/>
-  <text x="1025" y="378" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" fill="#fb923c" text-anchor="middle">Tool Registry</text>
-  <text x="1025" y="396" font-family="-apple-system, sans-serif" font-size="10" fill="#9a6042" text-anchor="middle">file · shell · web fetch</text>
-  <text x="1025" y="410" font-family="-apple-system, sans-serif" font-size="10" fill="#9a6042" text-anchor="middle">AppleScript (Calendar</text>
-  <text x="1025" y="424" font-family="-apple-system, sans-serif" font-size="10" fill="#9a6042" text-anchor="middle">Mail · Finder)</text>
-  <text x="1025" y="440" font-family="-apple-system, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Python · async</text>
+  <!-- ══════════════════════════════════════════ -->
+  <!-- NODE 4: Tool Registry -->
+  <!-- ══════════════════════════════════════════ -->
+  <rect x="866" y="318" width="198" height="130" rx="14"
+        fill="url(#nodeGrad4)" stroke="#ea580c" stroke-width="2"/>
+  <text x="965" y="348" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="17" font-weight="700" fill="#fb923c" text-anchor="middle">Tool Registry</text>
+  <text x="965" y="370" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#78503a" text-anchor="middle">file · shell · web fetch</text>
+  <text x="965" y="388" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#78503a" text-anchor="middle">AppleScript</text>
+  <text x="965" y="406" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#6b7280" text-anchor="middle">Calendar · Mail</text>
+  <text x="965" y="424" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="13" fill="#6b7280" text-anchor="middle">Finder · Shell</text>
+  <text x="965" y="442" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
+        font-size="12" fill="#4b5563" text-anchor="middle">Python · async</text>
 
-  <!-- Privacy badge bottom left -->
-  <rect x="100" y="564" width="200" height="40" rx="8" fill="#0f2010" stroke="#166534" stroke-width="1"/>
-  <text x="116" y="578" font-family="-apple-system, sans-serif" font-size="11" fill="#4ade80">🔒 100% Local</text>
-  <text x="116" y="594" font-family="-apple-system, sans-serif" font-size="10" fill="#4d7c0f">Zero outbound connections</text>
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- BOTTOM BADGES -->
+  <!-- ═══════════════════════════════════════════ -->
 
-  <!-- LiteRT badge bottom right -->
-  <rect x="900" y="564" width="200" height="40" rx="8" fill="#0f1a30" stroke="#1e3a5f" stroke-width="1"/>
-  <text x="916" y="578" font-family="-apple-system, sans-serif" font-size="11" fill="#60a5fa">Google AI Edge</text>
-  <text x="916" y="594" font-family="-apple-system, sans-serif" font-size="10" fill="#3b6298">LiteRT Special Track</text>
+  <!-- Privacy badge -->
+  <rect x="28" y="572" width="216" height="42" rx="10"
+        fill="#071a0e" stroke="#166534" stroke-width="1.5"/>
+  <text x="48" y="588" font-family="-apple-system,sans-serif" font-size="13" font-weight="600" fill="#4ade80">🔒 100% Local</text>
+  <text x="48" y="605" font-family="-apple-system,sans-serif" font-size="12" fill="#365314">Zero outbound connections · No API keys</text>
 
-  <!-- Hackathon label top right -->
-  <rect x="960" y="16" width="224" height="32" rx="16" fill="#1e1b2e" stroke="#4c1d95" stroke-width="1"/>
-  <text x="1072" y="37" font-family="-apple-system, sans-serif" font-size="13" font-weight="600"
-        fill="#a78bfa" text-anchor="middle">Gemma 4 Good Hackathon</text>
+  <!-- LiteRT Special Track badge -->
+  <rect x="848" y="572" width="324" height="42" rx="10"
+        fill="#0a1628" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="1010" y="588" font-family="-apple-system,sans-serif" font-size="13" font-weight="600" fill="#60a5fa" text-anchor="middle">Google AI Edge · LiteRT</text>
+  <text x="1010" y="605" font-family="-apple-system,sans-serif" font-size="12" fill="#1e40af" text-anchor="middle">Special Technology Track</text>
 
   <!-- Bottom accent bar -->
-  <rect x="0" y="626" width="1200" height="4" fill="url(#accentGrad)" opacity="0.5"/>
+  <rect x="0" y="626" width="1200" height="4" fill="url(#accentGrad)" opacity="0.6"/>
 </svg>
