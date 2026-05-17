@@ -2,8 +2,9 @@ import SwiftUI
 import UIKit
 
 struct TaskInputView: View {
+    var onTaskSubmitted: ((String) -> Void)? = nil
+
     @EnvironmentObject private var model: AppModel
-    @Environment(\.dismiss) private var dismiss
     @StateObject private var speech = SpeechInputController()
 
     @State private var rawInput = ""
@@ -173,13 +174,13 @@ struct TaskInputView: View {
         errorMessage = nil
         _Concurrency.Task {
             do {
-                _ = try await model.submitTask(text: text)
+                let task = try await model.submitTask(text: text)
                 await model.refreshTasks()
                 await MainActor.run {
                     rawInput = ""
                     parsedDraft = nil
                     isSubmitting = false
-                    dismiss()
+                    onTaskSubmitted?(task.taskId)
                 }
             } catch {
                 await MainActor.run {

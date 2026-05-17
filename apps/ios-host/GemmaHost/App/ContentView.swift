@@ -20,7 +20,11 @@ struct ContentView: View {
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            TaskInputView()
+            TaskInputView(onTaskSubmitted: { submittedTaskId in
+                hideKeyboard()
+                selectedTaskId = submittedTaskId
+                withAnimation { selectedTab = .tasks }
+            })
                 .tabItem {
                     Label("New Task", systemImage: "square.and.pencil")
                 }
@@ -55,9 +59,16 @@ struct ContentView: View {
             UNUserNotificationCenter.current().delegate = notificationDelegate
         }
     }
+
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(
+            #selector(UIResponder.resignFirstResponder),
+            to: nil, from: nil, for: nil
+        )
+    }
 }
 
-private enum AppTab {
+enum AppTab {
     case newTask, tasks
 }
 
