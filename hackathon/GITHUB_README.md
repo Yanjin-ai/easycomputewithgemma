@@ -111,10 +111,28 @@ Both available from [`litert-community`](https://huggingface.co/litert-community
 
 ---
 
+## Current Status
+
+> **Developer preview.** The backend is production-quality and fully operational. Client apps are implemented and build from source; binary distribution is in progress.
+
+| Component | State |
+|---|---|
+| Control Plane + Desktop Runtime (LiteRT) | ✅ Fully working, one-line install |
+| iOS App (SwiftUI) | ✅ Source complete, build via Xcode |
+| Android App (Kotlin/Compose) | ✅ Source complete, build via Android Studio |
+| macOS Menu Bar App (Swift) | ✅ Source complete, build via Xcode |
+| TestFlight / APK distribution | 🔄 In progress |
+
+**To verify the backend works end-to-end right now:**
+```bash
+bash scripts/start_all.sh       # start services + load Gemma 4
+bash scripts/test_all.sh        # run all 13 feature scenarios
+```
+
 ## Quick Start
 
 ```bash
-# Install everything + download Gemma 4 E2B
+# Install everything + download Gemma 4 E2B (~2.6 GB)
 curl -fsSL https://raw.githubusercontent.com/Yanjin-ai/easycomputewithgemma/main/scripts/install.sh | bash
 
 # Or use the larger E4B model

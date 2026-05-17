@@ -79,6 +79,10 @@ The schema-first discipline — defining 40 JSON Schemas before writing any serv
 
 ---
 
+## Current Status
+
+EasyCompute is a working developer preview. The backend (Control Plane + Desktop Runtime with LiteRT-LM) installs and runs via a single shell script. Mobile and desktop client apps (iOS SwiftUI, Android Kotlin/Compose, macOS menu bar) are fully implemented in the repository and build from source via Xcode and Android Studio; binary distribution (TestFlight, APK) is in progress. All results below were verified against the running backend using the included end-to-end test suite (`scripts/test_all.sh`).
+
 ## Results and Impact
 
 EasyCompute demonstrates that Gemma 4 via LiteRT can handle real agentic workloads on consumer hardware — not just single-turn question answering. Verified task classes include:
