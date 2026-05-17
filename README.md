@@ -1,136 +1,167 @@
-# EasyCompute — Run AI on Your Mac, Control from iPhone
+# EasyCompute — Gemma 4 on Your Mac, Controlled from Your Phone
 
-Run Gemma 4 AI locally on your Mac. Submit tasks from your iPhone. Your data never leaves your home network.
+> **Gemma 4 Good Hackathon · LiteRT Special Technology Track**
 
-**🔒 100% Local** — No cloud, no subscriptions, no data collection  
-**📱 iPhone → Mac** — Submit natural language tasks from anywhere  
-**🧠 Gemma 4** — Google's open model, running on your own hardware  
+**🔒 100% Local** · No cloud · No API keys · No data leaves your network  
+**📱 Any Device** · iOS · Android · macOS menu bar · All connected  
+**🧠 Gemma 4 via LiteRT** · Metal GPU · Apple Silicon M1–M4  
+**⚙️ Real Agentic Tasks** · Files · Shell · Web · AppleScript · Calendar  
 
 ---
 
 ## What It Does
 
-You type a task on your iPhone. Your Mac runs Google's Gemma 4 model locally and sends the result back. No API keys, no monthly fees, no data uploaded anywhere.
+You describe a task in natural language on your phone. Your Mac runs **Gemma 4** locally using **LiteRT-LM with Metal GPU acceleration**, executes multi-step tool calls, and returns the result — entirely on your local network.
 
-Examples of what you can ask:
-- *"Summarize the file at ~/Documents/notes.txt"*
-- *"Create a calendar event: Team meeting tomorrow at 2pm"*
-- *"What's the current memory usage on my Mac?"*
-- *"Translate this to Japanese: Hello, nice to meet you"*
-- *"Fetch example.com and tell me what it's about"*
-
----
-
-## Requirements
-
-- **Mac**: Apple Silicon (M1/M2/M3/M4), macOS 13+, 5 GB free storage
-- **iPhone**: iOS 16+
-- **Network**: Both devices on the same WiFi (or [Tailscale](docs/setup/tailscale.md) for remote access)
-
----
-
-## Quick Install (Mac)
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/Yanjin-ai/easycompute/main/scripts/install.sh | bash
+```
+"Read my notes file, summarise it, and create a calendar event for next Friday"
 ```
 
-Installation takes 10–30 minutes (mostly model download). Installs everything and starts automatically on login.
+Gemma 4 reads the file, reasons about the content, calls AppleScript to create the calendar event, and returns a summary. Zero internet traffic. Zero API calls. Zero subscriptions.
 
-**Options:**
-```bash
-# Use the larger, more capable E4B model (3.7 GB)
-MODEL=e4b curl -fsSL https://raw.githubusercontent.com/Yanjin-ai/easycompute/main/scripts/install.sh | bash
+---
 
-# Skip model download (install dependencies only)
-SKIP_MODEL=true bash scripts/install.sh
+## LiteRT at the Core
+
+Every task execution flows through `litert_lm.Engine`. LiteRT is not a wrapper — it is the **only inference path** in the system.
+
+```python
+import litert_lm
+
+# One engine, loaded once, shared across all tasks
+engine = litert_lm.Engine(
+    model_path="gemma-4-E2B-it.litertlm",
+    backend=litert_lm.Backend.GPU,   # Metal on Apple Silicon
+).__enter__()
+
+# Fresh conversation per task — isolated history, shared weights
+conv = engine.create_conversation()
+response = conv.send_message({"role": "user", "content": prompt})
 ```
 
-**Verify installation:**
-```bash
-bash scripts/validate_install.sh
-```
-
-### macOS 菜单栏 App（可选）
-
-从 [GitHub Releases](https://github.com/Yanjin-ai/easycompute/releases/latest) 下载 GemmaMenuBar.dmg，拖入 /Applications。
-
-> 首次打开：右键 → 打开（Apple 公证待后续版本加入）
-
-功能：服务状态监控、一键启停、模型下载进度、任务历史
-
----
-
-## iOS App
-
-*TestFlight link coming soon — currently in beta testing.*
-
-After installing:
-1. Open the app → follow the 3-screen setup guide
-2. Enter your Mac's IP address when prompted  
-   *(Find it: System Settings → Wi-Fi → Details → IP Address)*
-3. Tap **Test Connection** → **Get Started**
-
-The app will automatically scan for your Mac on the local network (Bonjour discovery).
-
----
-
-## Cross-Network Access (not on same WiFi)
-
-Install [Tailscale](https://tailscale.com) on both devices, then use your Mac's Tailscale IP in the app settings. Full guide: [docs/setup/tailscale.md](docs/setup/tailscale.md)
-
----
-
-## Troubleshooting
-
-| Problem | Fix |
-|---------|-----|
-| "Cannot connect to Mac" | Check: `launchctl list \| grep gemma4all` and `tail -f /tmp/gemma4all.stderr.log` |
-| Task stuck in "running" | First task loads the model (~30s). Wait and retry. |
-| No Macs found in app | Open the Gemma4all menu bar app on your Mac first |
-| Model download fails | Run manually: `bash scripts/check_models.sh` |
-| Wrong answer / poor quality | Switch to E4B: `MODEL=e4b bash scripts/install_autostart.sh` |
+| Design choice | Why |
+|---|---|
+| Single engine, reused across Runs | 28s cold start paid once; subsequent tasks 4–6s |
+| New `Conversation` per Run | Clean history per task, no cross-task contamination |
+| `Backend.GPU` | Metal dispatch on Apple Silicon M1–M4 |
+| `.litertlm` format | LiteRT-native quantized format from `litert-community` on HuggingFace |
 
 ---
 
 ## Architecture
 
 ```
-iPhone App  →  Control Plane (Node.js, port 3000)  →  Desktop Runtime (Python)
-                    ↓ routing / events                      ↓ Gemma 4 inference
-                  SQLite                               LiteRT-LM (Apple Silicon)
+Phone (iOS/Android)
+    │  POST /v1/tasks
+    ▼
+Control Plane (Node.js)          ← 42 JSON Schemas · Event-Sourced State Machine
+    │  HandoffPayload             ← Routing · Approval · Heartbeat
+    ▼
+Desktop Runtime (Python)
+    │  litert_lm.Engine
+    │  Backend.GPU
+    ▼
+Tool Registry                    ← file · shell · web · AppleScript · screenshot
+    │
+    └─ Events → POST /v1/events → Control Plane → Phone (polled)
 ```
 
-- **Control Plane**: coordinates tasks, routing, events — never touches inference
-- **Desktop Runtime**: runs Gemma 4 locally, calls tools, reports results
-- **iOS App**: submits tasks, polls for results, shows history
-- **Tools available**: file read/write, shell commands, web fetch, AppleScript (Calendar, Mail, Finder)
+**Event sourcing**: every state change is an immutable event. Task history is always fully reconstructible from the event log. No direct state mutations anywhere in the system.
 
-Protocol docs: [docs/protocols/](docs/protocols/)  
-Schema definitions: [packages/schemas/](packages/schemas/)
+**42 JSON Schemas**: all inter-component contracts are defined in `packages/schemas/` before code is written. Zero hand-written type definitions across four languages.
 
 ---
 
-## Development
+## Clients
+
+| Client | Tech | Key features |
+|---|---|---|
+| **iOS App** | SwiftUI | Bonjour discovery · Voice input · Event timeline · Siri Shortcuts |
+| **Android App** | Kotlin · Jetpack Compose | Task submission · Approval screen · State chips |
+| **macOS Menu Bar** | Swift | Model download UI · Service health · Task history |
+| **Terminal** | bash | `test_all.sh` · `eval_e2e.sh` · `install.sh` |
+
+---
+
+## Tools Available to Gemma 4
+
+| Tool | What it does |
+|---|---|
+| `read_file` / `write_file` | Read and write local files (home directory) |
+| `list_directory` | Browse directory contents |
+| `run_shell_command` | Execute any shell command (60s timeout) |
+| `web_fetch` | Fetch a URL, strip HTML, return clean text |
+| `web_search` | DuckDuckGo search, return top results |
+| `run_applescript` | Control macOS apps (Calendar, Mail, Finder, Music…) |
+| `take_screenshot` | Capture desktop, describe what's visible |
+
+---
+
+## Performance
+
+Measured on Apple M3, Gemma 4 E2B model:
+
+| Scenario | Time |
+|---|---|
+| Cold start (engine load) | ~28 s |
+| Warm inference, no tools | 4–6 s |
+| Warm, 3-step tool task | 12–18 s |
+
+---
+
+## Quick Start
 
 ```bash
-# Start all services locally
+# Install backend + download Gemma 4 E2B (~2.6 GB)
+curl -fsSL https://raw.githubusercontent.com/Yanjin-ai/easycomputewithgemma/main/scripts/install.sh | bash
+
+# Start services
 bash scripts/start_all.sh
 
-# Quick sanity check (arithmetic task)
-bash scripts/e2e_test.sh --quick
-
-# Full 5-scenario evaluation
-bash scripts/eval_e2e.sh
-
-# Build standalone control-plane binary
-bash scripts/build_binary.sh
+# Verify everything works (13 scenarios)
+bash scripts/test_all.sh
 ```
 
-See [CLAUDE.md](CLAUDE.md) for architecture rules and contribution guidelines.
+For the larger E4B model (~3.7 GB, better reasoning):
+```bash
+MODEL=e4b bash scripts/install.sh
+```
+
+---
+
+## Requirements
+
+- **Mac**: Apple Silicon (M1–M4), macOS 13+, ~5 GB storage
+- **Phone**: iOS 16+ or Android — or submit tasks via curl
+- **Network**: Same WiFi, or [Tailscale](docs/setup/tailscale.md) for remote access
+
+---
+
+## Repository Structure
+
+```
+services/
+  control-plane/      Node.js · TypeScript · 10 HTTP endpoints
+  desktop-runtime/    Python · LiteRT-LM · Tool execution
+apps/
+  ios-host/           SwiftUI · Bonjour · Voice · App Intents
+  mobile-host/        Kotlin · Jetpack Compose · Hilt
+  macos-menubar/      Swift · Model download · Health monitor
+packages/
+  schemas/            42 × JSON Schema Draft 2020-12
+docs/
+  protocols/          7 architecture protocol documents
+scripts/              19 scripts · install · test · release · DMG
+```
+
+---
+
+## Why LiteRT Matters Here
+
+LiteRT-LM is not an optional acceleration layer — it is what makes the privacy guarantee concrete. There is no fallback cloud API. If LiteRT runs, the task runs locally. The `.litertlm` format with Metal GPU dispatch is what makes Gemma 4 fast enough on consumer hardware for interactive, multi-step agentic use.
 
 ---
 
 ## License
 
-MIT
+MIT · *Submitted to the [Gemma 4 Good Hackathon](https://www.kaggle.com/competitions/gemma-4-good-hackathon) · LiteRT Special Technology Track*
