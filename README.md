@@ -51,6 +51,14 @@ SKIP_MODEL=true bash scripts/install.sh
 bash scripts/validate_install.sh
 ```
 
+### macOS 菜单栏 App（可选）
+
+从 [GitHub Releases](https://github.com/Yanjin-ai/easycompute/releases/latest) 下载 GemmaMenuBar.dmg，拖入 /Applications。
+
+> 首次打开：右键 → 打开（Apple 公证待后续版本加入）
+
+功能：服务状态监控、一键启停、模型下载进度、任务历史
+
 ---
 
 ## iOS App

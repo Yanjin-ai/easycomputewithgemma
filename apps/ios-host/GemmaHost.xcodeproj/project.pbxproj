@@ -64,7 +64,7 @@
 		BEB60ABBFB4721AD09C78827 /* JSONValue+Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONValue+Display.swift"; sourceTree = "<group>"; };
 		C5B6651276E4A78155C505EC /* NotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
 		CE878C3F3FEF56BE05D49163 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
-		D404138CC397BC890410F6CF /* GemmaHost.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = GemmaHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D404138CC397BC890410F6CF /* GemmaHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GemmaHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D496D451D6F1324B969FA086 /* TaskStateDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStateDisplay.swift; sourceTree = "<group>"; };
 		DB3A78FF4B15918E7ED09437 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		DD3DC669B28B58B1B800FF10 /* GemmaSubmitTaskIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemmaSubmitTaskIntent.swift; sourceTree = "<group>"; };
@@ -304,6 +304,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = T6RJMFLYDL;
 				INFOPLIST_FILE = GemmaHost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -450,6 +451,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = T6RJMFLYDL;
 				INFOPLIST_FILE = GemmaHost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
