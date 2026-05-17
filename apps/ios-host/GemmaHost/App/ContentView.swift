@@ -1,44 +1,33 @@
 import SwiftUI
-import UserNotifications
 
 struct ContentView: View {
+    /// Task ID pushed from a notification tap (passed down from GemmaHostApp).
+    var notificationTaskId: String?
+
     @EnvironmentObject private var model: AppModel
     @State private var selectedTab: AppTab = .newTask
-    @State private var selectedTaskId: String?
-    @State private var notificationDelegate = NotificationDelegate()
-
-    private var selectedTaskDestination: Binding<SelectedTaskDestination?> {
-        Binding(
-            get: {
-                selectedTaskId.map { SelectedTaskDestination(taskId: $0) }
-            },
-            set: { destination in
-                selectedTaskId = destination?.taskId
-            }
-        )
-    }
+    @State private var navigationPath: [String] = []
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            TaskInputView(onTaskSubmitted: { submittedTaskId in
+            // ── New Task tab ──────────────────────────────────────────────
+            TaskInputView(onTaskSubmitted: { _ in
+                // Dismiss keyboard then switch to Tasks tab.
+                // We do NOT push to detail here to avoid navigation conflicts.
                 hideKeyboard()
-                selectedTaskId = submittedTaskId
                 withAnimation { selectedTab = .tasks }
             })
-                .tabItem {
-                    Label("New Task", systemImage: "square.and.pencil")
-                }
-                .tag(AppTab.newTask)
+            .tabItem { Label("New Task", systemImage: "square.and.pencil") }
+            .tag(AppTab.newTask)
 
-            NavigationStack {
+            // ── Tasks tab (single NavigationStack for the whole app) ──────
+            NavigationStack(path: $navigationPath) {
                 TaskListView()
-                    .navigationDestination(item: selectedTaskDestination) { destination in
-                        TaskDetailView(taskId: destination.taskId)
+                    .navigationDestination(for: String.self) { taskId in
+                        TaskDetailView(taskId: taskId)
                     }
             }
-            .tabItem {
-                Label("Tasks", systemImage: "list.bullet")
-            }
+            .tabItem { Label("Tasks", systemImage: "list.bullet") }
             .tag(AppTab.tasks)
         }
         .overlay(alignment: .top) {
@@ -51,12 +40,11 @@ struct ContentView: View {
                     .padding()
             }
         }
-        .onAppear {
-            notificationDelegate.onTaskTapped = { taskId in
-                selectedTab = .tasks
-                selectedTaskId = taskId
-            }
-            UNUserNotificationCenter.current().delegate = notificationDelegate
+        // Handle notification deep-link: switch to Tasks tab and push detail.
+        .onChange(of: notificationTaskId) { taskId in
+            guard let taskId else { return }
+            selectedTab = .tasks
+            navigationPath = [taskId]
         }
     }
 
@@ -70,12 +58,4 @@ struct ContentView: View {
 
 enum AppTab {
     case newTask, tasks
-}
-
-private struct SelectedTaskDestination: Hashable, Identifiable {
-    let taskId: String
-
-    var id: String {
-        taskId
-    }
 }

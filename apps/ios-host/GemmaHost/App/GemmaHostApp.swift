@@ -11,33 +11,28 @@ struct GemmaHostApp: App {
 
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                ContentView()
+            ContentView(notificationTaskId: notificationRouter.pendingTaskId)
+                .environmentObject(model)
+                .fullScreenCover(isPresented: onboardingPresentation) {
+                    OnboardingView {
+                        onboardingComplete = true
+                        _Concurrency.Task {
+                            await model.bootstrap()
+                        }
+                    }
                     .environmentObject(model)
-                    .navigationDestination(item: $notificationRouter.selectedTaskDestination) { destination in
-                        TaskDetailView(taskId: destination.taskId)
+                }
+                .onAppear {
+                    notificationRouter.register()
+                }
+                .task {
+                    if !appShortcutsParametersUpdated {
+                        GemmaShortcutsProvider.updateAppShortcutParameters()
+                        appShortcutsParametersUpdated = true
                     }
-                    .fullScreenCover(isPresented: onboardingPresentation) {
-                        OnboardingView {
-                            onboardingComplete = true
-                            _Concurrency.Task {
-                                await model.bootstrap()
-                            }
-                        }
-                        .environmentObject(model)
-                    }
-                    .onAppear {
-                        notificationRouter.register()
-                    }
-                    .task {
-                        if !appShortcutsParametersUpdated {
-                            GemmaShortcutsProvider.updateAppShortcutParameters()
-                            appShortcutsParametersUpdated = true
-                        }
-                        guard onboardingComplete else { return }
-                        await model.bootstrap()
-                    }
-            }
+                    guard onboardingComplete else { return }
+                    await model.bootstrap()
+                }
         }
     }
 
@@ -55,26 +50,18 @@ struct GemmaHostApp: App {
 
 @MainActor
 private final class NotificationRouter: ObservableObject {
-    @Published var selectedTaskDestination: SelectedNotificationTask?
+    @Published var pendingTaskId: String?
 
     private let notificationDelegate = NotificationDelegate()
 
     init() {
         notificationDelegate.onTaskTapped = { [weak self] taskId in
-            self?.selectedTaskDestination = SelectedNotificationTask(taskId: taskId)
+            self?.pendingTaskId = taskId
         }
         register()
     }
 
     func register() {
         UNUserNotificationCenter.current().delegate = notificationDelegate
-    }
-}
-
-private struct SelectedNotificationTask: Hashable, Identifiable {
-    let taskId: String
-
-    var id: String {
-        taskId
     }
 }

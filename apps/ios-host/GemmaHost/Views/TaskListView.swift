@@ -162,9 +162,7 @@ struct TaskListView: View {
     }
 
     private func taskRow(_ task: Task) -> some View {
-        NavigationLink {
-            TaskDetailView(taskId: task.taskId)
-        } label: {
+        NavigationLink(value: task.taskId) {
             let display = TaskStateDisplay.from(task.currentState)
             VStack(alignment: .leading, spacing: 4) {
                 Text(task.taskTitle)
