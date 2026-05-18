@@ -94,3 +94,4 @@ apps/mobile-host/app/build/
 apps/mobile-host/local.properties
 *.apk
 *.aab
+hackathon/
