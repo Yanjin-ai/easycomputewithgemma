@@ -54,7 +54,7 @@ response = conv.send_message({"role": "user", "content": prompt})
 Phone (iOS/Android)
     │  POST /v1/tasks
     ▼
-Control Plane (Node.js)          ← 42 JSON Schemas · Event-Sourced State Machine
+Control Plane (Node.js)          ← Event-Sourced State Machine
     │  HandoffPayload             ← Routing · Approval · Heartbeat
     ▼
 Desktop Runtime (Python)
@@ -68,7 +68,7 @@ Tool Registry                    ← file · shell · web · AppleScript · scre
 
 **Event sourcing**: every state change is an immutable event. Task history is always fully reconstructible from the event log. No direct state mutations anywhere in the system.
 
-**42 JSON Schemas**: all inter-component contracts are defined in `packages/schemas/` before code is written. Zero hand-written type definitions across four languages.
+**Schema-first design**: all inter-component contracts are defined as JSON Schema before implementation. Type definitions across the stack are generated from the same source of truth.
 
 ---
 
@@ -79,7 +79,7 @@ Tool Registry                    ← file · shell · web · AppleScript · scre
 | **iOS App** | SwiftUI | Bonjour discovery · Voice input · Event timeline · Siri Shortcuts |
 | **Android App** | Kotlin · Jetpack Compose | Task submission · Approval screen · State chips |
 | **macOS Menu Bar** | Swift | Model download UI · Service health · Task history |
-| **Terminal** | bash | `test_all.sh` · `eval_e2e.sh` · `install.sh` |
+| **Terminal** | bash | `install.sh` · `start_all.sh` · `test_all.sh` |
 
 ---
 
@@ -129,30 +129,29 @@ MODEL=e4b bash scripts/install.sh
 
 ---
 
-## Requirements
-
-- **Mac**: Apple Silicon (M1–M4), macOS 13+, ~5 GB storage
-- **Phone**: iOS 16+ or Android — or submit tasks via curl
-- **Network**: Same WiFi, or [Tailscale](docs/setup/tailscale.md) for remote access
-
----
-
 ## Repository Structure
 
 ```
 services/
-  control-plane/      Node.js · TypeScript · 10 HTTP endpoints
+  control-plane/      Node.js · TypeScript · HTTP API
   desktop-runtime/    Python · LiteRT-LM · Tool execution
+  cloud-runtime/      Python · Cloud fallback runtime
 apps/
   ios-host/           SwiftUI · Bonjour · Voice · App Intents
   mobile-host/        Kotlin · Jetpack Compose · Hilt
   macos-menubar/      Swift · Model download · Health monitor
 packages/
-  schemas/            42 × JSON Schema Draft 2020-12
-docs/
-  protocols/          7 architecture protocol documents
-scripts/              19 scripts · install · test · release · DMG
+  schemas/            JSON Schema contracts
+scripts/              install · start · test · release · DMG
 ```
+
+---
+
+## Requirements
+
+- **Mac**: Apple Silicon (M1–M4), macOS 13+, ~5 GB storage
+- **Phone**: iOS 16+ or Android — or submit tasks via curl
+- **Network**: Same WiFi, or [Tailscale](docs/setup/tailscale.md) for remote access
 
 ---
 
